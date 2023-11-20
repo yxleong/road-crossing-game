@@ -4,6 +4,7 @@ from turtle import Screen, Turtle
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
+import subprocess
 
 BACKGROUND_IMG = "assets/road2_600.gif"
 
@@ -19,14 +20,24 @@ player = Player()
 scoreboard = Scoreboard()
 car_manager = CarManager()
 
+def open_popup_window():
+    result = subprocess.run(["python", "menu.py"])
+    print(result)
+    if result.returncode == 1:
+        screen.bye()
+    
 screen.listen()
 screen.onkeypress(player.move_forward, "w")
 screen.onkeypress(player.move_back, "s")
 screen.onkeypress(player.move_left, "a")
 screen.onkeypress(player.move_right, "d")
 
+#toClose = 0
+screen.onkeypress(open_popup_window, "Escape")
+
 game_is_on = True
 while game_is_on:
+
     # Randomly spawn cars
     random_chance = random.randint(1, car_manager.create_car_chances)
     if random_chance == 1:
