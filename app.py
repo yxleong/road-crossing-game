@@ -1,29 +1,18 @@
 import time
 import random
 from turtle import Screen, Turtle
+import subprocess
+
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
-import subprocess
-
-BACKGROUND_IMG = "assets/road2_600.gif"
-PLAYER_IMG = "assets/Bear01.gif"
-
-# screen = Screen()
-# screen.setup(width=600, height=600)
-# screen.tracer(0)
-# screen.title("Turtle Road Crossing Game 🐢")
-
-# screen.register_shape(BACKGROUND_IMG)
-# screen.register_shape(PLAYER_IMG)
-# background = Turtle(BACKGROUND_IMG)
 
 
 class App:
-    def __init__(self, screen) -> None:
+    def __init__(self, screen, player_img) -> None:
         self.scoreboard = Scoreboard()
         self.car_manager = CarManager()
-        self.player = Player(PLAYER_IMG)
+        self.player = Player(player_img)
         self.screen = screen
 
         self.screen.listen()
@@ -71,6 +60,3 @@ class App:
 
             time.sleep(0.1)
             self.screen.update()
-
-
-# screen.exitonclick()

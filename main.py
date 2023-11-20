@@ -1,11 +1,9 @@
-from tkinter import *
+# from tkinter import *
 from turtle import Turtle, Screen
 from app import App
 
 BACKGROUND_IMG = "assets/road2_600.gif"
-PLAYER_IMG = "assets/Bear01.gif"
-
-# window = Tk()
+PLAYER_IMG = "assets/Bear.gif"
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -16,9 +14,11 @@ screen.register_shape(BACKGROUND_IMG)
 screen.register_shape(PLAYER_IMG)
 background = Turtle(BACKGROUND_IMG)
 
-app = App(screen=screen)
+app = App(screen, PLAYER_IMG)
 
-# window.mainloop()
+screen.exitonclick()
+# screen.mainloop()
+
 
 # import time
 # import random

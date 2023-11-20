@@ -19,7 +19,6 @@ class CarManager:
             register_shape(shape)
         self.car_speed = STARTING_MOVE_DISTANCE
         self.create_car_chances = CREATE_CAR_CHANCES
-        self.should_move = True
         self.displayed_cars = []
         self.unused_cars = []
         self.initialize_all_cars()
@@ -41,8 +40,6 @@ class CarManager:
             self.displayed_cars.append(new_car)
 
     def move_cars(self):
-        if not self.should_move:
-            return
         for car in self.displayed_cars:
             car.forward(self.car_speed)
             if car.xcor() <= -330:
