@@ -1,22 +1,27 @@
 # from tkinter import *
 from turtle import Turtle, Screen
 from app import App
+from main_menu import Menu
 
 BACKGROUND_IMG = "assets/road2_600.gif"
 PLAYER_IMG = "assets/Bear.gif"
 
-screen = Screen()
-screen.setup(width=600, height=600)
-screen.tracer(0)
-screen.title("Turtle Road Crossing Game 🐢")
+# screen = Screen()
+# screen.setup(width=600, height=600)
+# screen.tracer(0)
+# screen.title("Turtle Road Crossing Game 🐢")
 
-screen.register_shape(BACKGROUND_IMG)
-screen.register_shape(PLAYER_IMG)
-background = Turtle(BACKGROUND_IMG)
+# screen.register_shape(BACKGROUND_IMG)
+# screen.register_shape(PLAYER_IMG)
+# background = Turtle(BACKGROUND_IMG)
 
-app = App(screen, PLAYER_IMG)
+main_app = Menu()
+main_app.resize_window(600, 600)
+main_app.mainloop()
 
-screen.exitonclick()
+# app = App(screen, PLAYER_IMG)
+
+# screen.exitonclick()
 # screen.mainloop()
 
 
