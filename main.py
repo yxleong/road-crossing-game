@@ -7,6 +7,7 @@ from scoreboard import Scoreboard
 import subprocess
 
 BACKGROUND_IMG = "assets/road2_600.gif"
+PLAYER_IMG = "assets/Bear01.gif"
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -14,30 +15,36 @@ screen.tracer(0)
 screen.title("Turtle Road Crossing Game 🐢")
 
 screen.register_shape(BACKGROUND_IMG)
+screen.register_shape(PLAYER_IMG)
 background = Turtle(BACKGROUND_IMG)
 
-player = Player()
 scoreboard = Scoreboard()
 car_manager = CarManager()
+player = Player(PLAYER_IMG)
+
 
 def open_popup_window():
     result = subprocess.run(["python", "menu.py"])
     print(result)
     if result.returncode == 1:
         screen.bye()
-    
+
+
 screen.listen()
 screen.onkeypress(player.move_forward, "w")
+screen.onkeypress(player.move_forward, "Up")
 screen.onkeypress(player.move_back, "s")
+screen.onkeypress(player.move_back, "Down")
 screen.onkeypress(player.move_left, "a")
+screen.onkeypress(player.move_left, "Left")
 screen.onkeypress(player.move_right, "d")
+screen.onkeypress(player.move_right, "Right")
 
-#toClose = 0
+# toClose = 0
 screen.onkeypress(open_popup_window, "Escape")
 
 game_is_on = True
 while game_is_on:
-
     # Randomly spawn cars
     random_chance = random.randint(1, car_manager.create_car_chances)
     if random_chance == 1:
