@@ -23,6 +23,9 @@ class Menu(Tk):
     def show_frame(self, page_name):
         frame = self.frames[page_name]
         frame.tkraise()
+        self.tkraise()
+        if page_name == "Game":
+            frame.play_game()
 
     def start_game(self, container):
         new_game_frame = type(self.frames["Game"])(parent=container, controller=self)
@@ -35,7 +38,14 @@ class Menu(Tk):
         self.frames.pop("Game")
 
     def resize_window(self, width, height):
-        self.geometry(f"{width}x{height}")
+        # self.geometry(f"{width}x{height}")
+        ws = self.winfo_screenwidth()
+        hs = self.winfo_screenheight()
+
+        x = (ws / 2) - (width / 2)
+        y = (hs / 2) - (height / 2)
+
+        self.geometry(f"{width}x{height}+{int(x)}+{int(y)}")
 
 
 class MainMenu(Frame):
@@ -53,7 +63,7 @@ class MainMenu(Frame):
         button2 = Button(
             self,
             text="Go to Game",
-            command=lambda: controller.start_game(controller),
+            command=lambda: controller.show_frame("Game"),
         )
         button1.pack()
         button2.pack()
