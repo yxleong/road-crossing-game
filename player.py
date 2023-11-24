@@ -1,8 +1,10 @@
-from turtle import Turtle, register_shape
+from turtle import Turtle
 
-STARTING_POSITION = (0, -280)
+STARTING_POSITION = (0, -410)
 MOVE_DISTANCE = 10
-FINISH_LINE_Y = 280
+FINISH_LINE_Y = 410
+POSITION_LIMIT_X = 640
+POSITION_LIMIT_Y = 410
 
 
 class Player(Turtle):
@@ -21,15 +23,15 @@ class Player(Turtle):
             self.forward(MOVE_DISTANCE)
 
     def move_back(self):
-        if self.is_alive and self.ycor() > -280:
+        if self.is_alive and self.ycor() > -POSITION_LIMIT_Y:
             self.back(MOVE_DISTANCE)
 
     def move_left(self):
-        if self.is_alive and self.xcor() > -280:
+        if self.is_alive and self.xcor() > -POSITION_LIMIT_X:
             self.goto(self.xcor() - MOVE_DISTANCE, self.ycor())
 
     def move_right(self):
-        if self.is_alive and self.xcor() < 280:
+        if self.is_alive and self.xcor() < POSITION_LIMIT_X:
             self.goto(self.xcor() + MOVE_DISTANCE, self.ycor())
 
     def finish_line(self):

@@ -2,9 +2,13 @@ from turtle import Turtle, register_shape
 import random
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
+CREATE_CAR_CHANCES = 6
+CAR_COUNT = 70
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 5
-CREATE_CAR_CHANCES = 6
+STARTING_POSITION_X = 700
+BOTTOM_POSITION_Y = -350
+TOP_POSITION_Y = 350
 
 # car size: 70 x 31 pixels
 CAR_RED = "assets/car_red_small.gif"
@@ -24,7 +28,7 @@ class CarManager:
         self.initialize_all_cars()
 
     def initialize_all_cars(self):
-        for i in range(50):
+        for i in range(CAR_COUNT):
             new_car = Turtle(random.choice(car_shapes))
             new_car.penup()
             new_car.setheading(180)
@@ -35,14 +39,14 @@ class CarManager:
         if self.unused_cars:
             new_car = self.unused_cars.pop()
             new_car.showturtle()
-            random_y = -250 + (random.randint(1, 16) * 31)
-            new_car.goto(330, random_y)
+            random_y = BOTTOM_POSITION_Y + (random.randint(1, 18) * 40)
+            new_car.goto(STARTING_POSITION_X, random_y)
             self.displayed_cars.append(new_car)
 
     def move_cars(self):
         for car in self.displayed_cars:
             car.forward(self.car_speed)
-            if car.xcor() <= -330:
+            if car.xcor() <= -STARTING_POSITION_X:
                 car.hideturtle()
                 self.unused_cars.append(car)
                 self.displayed_cars.remove(car)

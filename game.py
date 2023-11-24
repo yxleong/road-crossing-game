@@ -1,14 +1,16 @@
 import time
 import random
-from turtle import Screen, Turtle, TurtleScreen
+from turtle import Screen, Turtle
 from tkinter import *
 
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
 
-BACKGROUND_IMG = "assets/road2_600.gif"
+BACKGROUND_IMG = "assets/scene2.gif"
 PLAYER_IMG = "assets/Bear.gif"
+SCREEN_WIDTH = 1354
+SCREEN_HEIGHT = 897
 
 
 class Game(Frame):
@@ -18,7 +20,7 @@ class Game(Frame):
 
     def init_game(self):
         screen = Screen()
-        screen.setup(width=600, height=600)
+        screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
         screen.tracer(0)
         screen.title("Turtle Road Crossing Game 🐢")
 

@@ -1,10 +1,13 @@
-# from tkinter import *
-from turtle import Turtle, Screen
-from app import App
 from main_menu import Menu
+from game import SCREEN_HEIGHT, SCREEN_WIDTH
 
-BACKGROUND_IMG = "assets/road2_600.gif"
-PLAYER_IMG = "assets/Bear.gif"
+main_app = Menu()
+main_app.resize_window(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
+main_app.mainloop()
+
+
+# BACKGROUND_IMG = "assets/road2_600.gif"
+# PLAYER_IMG = "assets/Bear.gif"
 
 # screen = Screen()
 # screen.setup(width=600, height=600)
@@ -14,10 +17,6 @@ PLAYER_IMG = "assets/Bear.gif"
 # screen.register_shape(BACKGROUND_IMG)
 # screen.register_shape(PLAYER_IMG)
 # background = Turtle(BACKGROUND_IMG)
-
-main_app = Menu()
-main_app.resize_window(600, 600)
-main_app.mainloop()
 
 # app = App(screen, PLAYER_IMG)
 
