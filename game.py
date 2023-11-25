@@ -6,11 +6,10 @@ from tkinter import *
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
+from background import Background, RIVERS_COOR
 
-BACKGROUND_IMG = "assets/scene2.gif"
-PLAYER_IMG = "assets/Bear.gif"
-SCREEN_WIDTH = 1354
-SCREEN_HEIGHT = 897
+SCREEN_WIDTH = 1352
+SCREEN_HEIGHT = 896
 
 
 class Game(Frame):
@@ -18,19 +17,16 @@ class Game(Frame):
         Frame.__init__(self, parent)
         self.controller = controller
 
-    def init_game(self):
+    def init_game_tools(self):
         screen = Screen()
         screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
         screen.tracer(0)
         screen.title("Turtle Road Crossing Game 🐢")
 
-        screen.register_shape(BACKGROUND_IMG)
-        screen.register_shape(PLAYER_IMG)
-        background = Turtle(BACKGROUND_IMG)
-
+        background = Background()
         scoreboard = Scoreboard()
         car_manager = CarManager()
-        player = Player(PLAYER_IMG)
+        player = Player()
 
         screen.listen()
         screen.onkeypress(player.move_forward, "w")
@@ -51,7 +47,7 @@ class Game(Frame):
         }
 
     def play_game(self):
-        tools = self.init_game()
+        tools = self.init_game_tools()
         screen = tools["screen"]
         scoreboard = tools["scoreboard"]
         car_manager = tools["car_manager"]
@@ -73,10 +69,13 @@ class Game(Frame):
                     car_manager.create_car_chances -= 1
 
             # Detect player collision with car
-            if player.detect_collision(car_manager.displayed_cars):
+            if player.detect_collision(
+                car_manager.displayed_cars
+            ) or player.detect_drowning(RIVERS_COOR):
                 game_is_on = False
                 player.is_alive = False
                 scoreboard.display_game_over()
+                time.sleep(2)
 
             time.sleep(0.1)
             screen.update()

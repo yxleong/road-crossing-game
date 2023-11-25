@@ -14,12 +14,12 @@ TOP_POSITION_Y = 350
 CAR_RED = "assets/car_red_small.gif"
 CAR_GREEN = "assets/car_green_small.gif"
 CAR_BLUE = "assets/car_blue_small.gif"
-car_shapes = [CAR_RED, CAR_GREEN, CAR_BLUE]
+CAR_SHAPES = [CAR_RED, CAR_GREEN, CAR_BLUE]
 
 
 class CarManager:
     def __init__(self) -> None:
-        for shape in car_shapes:
+        for shape in CAR_SHAPES:
             register_shape(shape)
         self.car_speed = STARTING_MOVE_DISTANCE
         self.create_car_chances = CREATE_CAR_CHANCES
@@ -28,8 +28,8 @@ class CarManager:
         self.initialize_all_cars()
 
     def initialize_all_cars(self):
-        for i in range(CAR_COUNT):
-            new_car = Turtle(random.choice(car_shapes))
+        for _ in range(CAR_COUNT):
+            new_car = Turtle(random.choice(CAR_SHAPES))
             new_car.penup()
             new_car.setheading(180)
             new_car.hideturtle()

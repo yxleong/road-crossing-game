@@ -1,17 +1,19 @@
-from turtle import Turtle
+from turtle import Turtle, register_shape
 
 STARTING_POSITION = (0, -410)
 MOVE_DISTANCE = 10
 FINISH_LINE_Y = 410
 POSITION_LIMIT_X = 640
 POSITION_LIMIT_Y = 410
+PLAYER_IMG = "assets/Bear.gif"
 
 
 class Player(Turtle):
     def __init__(
         self, shape: str = "turtle", undobuffersize: int = 1000, visible: bool = True
     ) -> None:
-        super().__init__(shape)
+        register_shape(PLAYER_IMG)
+        super().__init__(PLAYER_IMG)
         self.penup()
         self.color("lime")
         self.setheading(90)
@@ -46,6 +48,18 @@ class Player(Turtle):
                 self.ycor() >= car.ycor() - 25
                 and self.ycor() <= car.ycor() + 25
                 and self.distance(car.pos()) <= 42
+            ):
+                self.is_alive = False
+                return True
+        return False
+
+    def detect_drowning(self, river_list):
+        for river in river_list:
+            if (
+                self.ycor() - 10 <= river["top"]
+                and self.ycor() - 10 >= river["bottom"]
+                and self.xcor() + 10 >= river["left"]
+                and self.xcor() - 10 <= river["right"]
             ):
                 self.is_alive = False
                 return True
