@@ -39,9 +39,14 @@ class CarManager:
         if self.unused_cars:
             new_car = self.unused_cars.pop()
             new_car.showturtle()
-            random_y = BOTTOM_POSITION_Y + (random.randint(1, 18) * 40)
+            random_y = BOTTOM_POSITION_Y + self.generate_random_y_offset()
             new_car.goto(STARTING_POSITION_X, random_y)
             self.displayed_cars.append(new_car)
+
+    def generate_random_y_offset(self) -> int:
+        offsets = [0, 40, 120, 160, 470, 510, 585, 625, 665, 705]
+        offset = random.choice(offsets)
+        return offset
 
     def move_cars(self):
         for car in self.displayed_cars:
