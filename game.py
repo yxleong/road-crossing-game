@@ -17,30 +17,28 @@ class Game(Frame):
         Frame.__init__(self, parent)
         self.controller = controller
 
-    def init_game_tools(self):
-        screen = Screen()
-        screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
-        screen.tracer(0)
-        screen.title("Turtle Road Crossing Game 🐢")
+        self.screen = Screen()
+        self.screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
+        self.screen.tracer(0)
+        self.screen.title("Road Crossing Game 🚗")
 
+    def init_game_tools(self):
         background = Background()
         scoreboard = Scoreboard()
         car_manager = CarManager()
         player = Player()
 
-        screen.listen()
-        screen.onkeypress(player.move_forward, "w")
-        screen.onkeypress(player.move_forward, "Up")
-        screen.onkeypress(player.move_back, "s")
-        screen.onkeypress(player.move_back, "Down")
-        screen.onkeypress(player.move_left, "a")
-        screen.onkeypress(player.move_left, "Left")
-        screen.onkeypress(player.move_right, "d")
-        screen.onkeypress(player.move_right, "Right")
+        self.screen.listen()
+        self.screen.onkeypress(player.move_forward, "w")
+        self.screen.onkeypress(player.move_forward, "Up")
+        self.screen.onkeypress(player.move_back, "s")
+        self.screen.onkeypress(player.move_back, "Down")
+        self.screen.onkeypress(player.move_left, "a")
+        self.screen.onkeypress(player.move_left, "Left")
+        self.screen.onkeypress(player.move_right, "d")
+        self.screen.onkeypress(player.move_right, "Right")
 
-        # self.play_game()
         return {
-            "screen": screen,
             "scoreboard": scoreboard,
             "car_manager": car_manager,
             "player": player,
@@ -48,7 +46,6 @@ class Game(Frame):
 
     def play_game(self):
         tools = self.init_game_tools()
-        screen = tools["screen"]
         scoreboard = tools["scoreboard"]
         car_manager = tools["car_manager"]
         player = tools["player"]
@@ -78,8 +75,10 @@ class Game(Frame):
                 time.sleep(2)
 
             time.sleep(0.1)
-            screen.update()
+            self.screen.update()
 
-        # screen.bye()
-        # self.controller.delete_game_frame()
-        self.controller.show_frame("PauseMenu")
+        self.controller.current_score = scoreboard.get_score()
+        self.controller.show_frame("ScoreMenu")
+
+    def delete_game(self):
+        self.screen.bye()

@@ -26,3 +26,6 @@ class Scoreboard(Turtle):
     def display_game_over(self):
         self.goto(0, 0)
         self.write(arg="GAME OVER", align="center", font=FONT)
+
+    def get_score(self):
+        return self.level
