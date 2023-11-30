@@ -33,18 +33,7 @@ class Menu(Tk):
         elif page_name == "ScoreMenu":
             frame.update_score(self.current_score)
 
-    # def start_game(self, container):
-    #     new_game_frame = type(self.frames["Game"])(parent=container, controller=self)
-    #     # self.frames["Game"] = game_frame
-    #     # new_game_frame.grid(row=0, column=0, sticky="nsew")
-    #     new_game_frame.tkraise()
-    #     new_game_frame.play_game()
-
-    def delete_game_frame(self):
-        self.frames["Game"].delete_game()
-
     def resize_window(self, width, height):
-        # self.geometry(f"{width}x{height}")
         ws = self.winfo_screenwidth()
         hs = self.winfo_screenheight()
 
@@ -52,6 +41,9 @@ class Menu(Tk):
         y = (hs / 2) - (height / 2)
 
         self.geometry(f"{width}x{height}+{int(x)}+{int(y)}")
+
+    def delete_game_frame(self):
+        self.frames["Game"].delete_game()
 
     def exit_game(self):
         self.delete_game_frame()
@@ -65,7 +57,7 @@ class MainMenu(Frame):
         label = Label(self, text="This is the MainMenu page")
         label.pack(side="top", fill="x", pady=10)
 
-        button1 = Button(
+        start_game_btn = Button(
             self,
             text="Start Game",
             command=lambda: controller.show_frame("Game"),
@@ -75,11 +67,13 @@ class MainMenu(Frame):
         #     text="Go to ScoreMenu",
         #     command=lambda: controller.show_frame("ScoreMenu"),
         # )
-        button3 = Button(self, text="Exit Game", command=lambda: controller.exit_game())
+        exit_game_btn = Button(
+            self, text="Exit Game", command=lambda: controller.exit_game()
+        )
 
-        button1.pack()
+        start_game_btn.pack()
         # button2.pack()
-        button3.pack()
+        exit_game_btn.pack()
 
 
 class ScoreMenu(Frame):
@@ -90,12 +84,12 @@ class ScoreMenu(Frame):
         self.score = self.controller.current_score
         self.label = Label(self, text=f"Score: {self.score}")
         self.label.pack(side="top", fill="x", pady=10)
-        button = Button(
+        back_btn = Button(
             self,
             text="Go Back to Main Menu",
             command=lambda: controller.show_frame("MainMenu"),
         )
-        button.pack()
+        back_btn.pack()
 
     def update_score(self, score):
         self.score = score
