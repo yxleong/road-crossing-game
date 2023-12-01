@@ -68,8 +68,6 @@ class MainMenu(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
         self.controller = controller
-        # label = Label(self, text="This is the MainMenu page")
-        # label.pack(side="top", fill="x", pady=10)
 
         bg_image = PhotoImage(file=MAIN_MENU_BACKGROUND_PATH)
         bg_label = Label(self, image=bg_image)
@@ -79,41 +77,26 @@ class MainMenu(Frame):
 
         start_game_btn = Button(
             self,
-            # text="Start Game",
             image=controller.button_images["play"],
             command=lambda: controller.show_frame("Game"),
             bd=0,
         )
         # start_game_btn.pack()
         start_game_btn.config(width=378, height=120)
-        start_game_btn.place(x=458, y=222)
+        # start_game_btn.place(x=458, y=222)
         # start_game_btn.lift()
 
         exit_game_btn = Button(
             self,
-            # text="Exit Game",
             image=controller.button_images["quit"],
             command=lambda: controller.exit_game(),
             bd=0,
         )
         exit_game_btn.config(width=386, height=120)
+        # exit_game_btn.place(x=455, y=367)
+
+        start_game_btn.place(x=458, y=222)
         exit_game_btn.place(x=455, y=367)
-        # exit_game_btn.pack()
-        # exit_game_btn.lift()
-
-        # start_game_btn.place(x=459,y=225)
-        # exit_game_btn.place(x=459,y=367)
-
-        # button2 = Button(
-        #     self,
-        #     text="Go to ScoreMenu",
-        #     command=lambda: controller.show_frame("ScoreMenu"),
-        # )
-        # exit_game_btn = Button(
-        #     self, text="Exit Game", command=lambda: controller.exit_game()
-        # )
-
-        # button2.pack()
 
 
 class ScoreMenu(Frame):
@@ -164,6 +147,7 @@ class ScoreMenu(Frame):
             command=lambda: controller.show_frame("MainMenu"),
             bd=0,
         )
+
         home_btn.config(width=139, height=139)
         home_btn.place(x=512, y=510)
 
@@ -173,6 +157,7 @@ class ScoreMenu(Frame):
             command=lambda: controller.show_frame("Game"),
             bd=0,
         )
+
         restart_btn.config(width=139, height=139)
         restart_btn.place(x=698, y=510)
 
