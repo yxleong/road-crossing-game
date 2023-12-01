@@ -2,13 +2,14 @@ from tkinter import *
 
 from game import Game, SCREEN_WIDTH, SCREEN_HEIGHT
 
-PLAY_BUTTON_PATH = "images\play_button.png"
-QUIT_BUTTON_PATH = "images\quit_button.png"
-HOME_BUTTON_PATH = "images\home_button.png"
-RESTART_BUTTON_PATH = "images\\restart_button.png"
-MAIN_MENU_BACKGROUND_PATH = "images\plan_main_menu.png"
-GAME_OVER_BACKGROUND_PATH = "images\game_over_menu.png"
-STAR_PATH = "images\star.png"
+PLAY_BUTTON_PATH = "images/play_button.png"
+QUIT_BUTTON_PATH = "images/quit_button.png"
+HOME_BUTTON_PATH = "images/home_button.png"
+RESTART_BUTTON_PATH = "images/restart_button.png"
+MAIN_MENU_BACKGROUND_PATH = "images/plan_main_menu.png"
+SCORE_MENU_BACKGROUND_PATH = "images/score_menu.png"
+STAR_PATH = "images/star.png"
+
 
 class Menu(Tk):
     def __init__(self, *args, **kwargs) -> None:
@@ -105,25 +106,17 @@ class ScoreMenu(Frame):
         self.controller = controller
         self.score = self.controller.current_score
 
-        # gg_image = PhotoImage(file=GAME_OVER_BACKGROUND_PATH)
-        gg_image = PhotoImage(file='images\plan_score_menu.png')
-        menu_label = Label(self, image=gg_image)
-        menu_label.image = gg_image
+        bg_image = PhotoImage(file=SCORE_MENU_BACKGROUND_PATH)
+        bg_label = Label(self, image=bg_image)
+        bg_label.image = bg_image
         # menu_label.place(x=300, y=132)
-        menu_label.pack()
-        
+        bg_label.pack()
+
         # self.label.pack(
-        #     side="left", 
-        #     fill="x", 
+        #     side="left",
+        #     fill="x",
         #     pady=10
         # )
-
-        # back_btn = Button(
-        #     self,
-        #     text="Go Back to Main Menu",
-        #     command=lambda: controller.show_frame("MainMenu"),
-        # )
-        # back_btn.pack()
 
         # bg_image = PhotoImage(file='images\plan_game_over.gif')
         # bg_image = PhotoImage(file='assets\scene2.gif')
@@ -132,14 +125,14 @@ class ScoreMenu(Frame):
         # bg_label.pack()
 
         star_img = PhotoImage(file=STAR_PATH)
-        self.label = Label(
-            self, 
+        self.score_label = Label(
+            self,
             # text=f"Score: {self.score}",
             text=self.score,
-            font=("Arial", 72)
+            font=("Arial", 72),
         )
-        self.label.place(x=647, y=338)
-        self.label.lift()
+        self.score_label.place(x=647, y=338)
+        self.score_label.lift()
 
         home_btn = Button(
             self,
@@ -163,5 +156,5 @@ class ScoreMenu(Frame):
 
     def update_score(self, score):
         self.score = score
-        # self.label.config(text=f"Score: {self.score}")
-        self.label.config(text=self.score)
+        # self.score_label.config(text=f"Score: {self.score}")
+        self.score_label.config(text=self.score)

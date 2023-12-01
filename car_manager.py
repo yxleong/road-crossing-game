@@ -10,13 +10,7 @@ STARTING_POSITION_X = 700
 BOTTOM_POSITION_Y = -350
 TOP_POSITION_Y = 350
 
-# car size: 70 x 31 pixels
-# CAR_RED = "assets/car_red_small.gif"
-# CAR_GREEN = "assets/car_green_small.gif"
-# CAR_BLUE = "assets/car_blue_small.gif"
-# CAR_SHAPES = [CAR_RED, CAR_GREEN, CAR_BLUE]
-
-# car size: 79 x 47 px
+# car size: 60 x 35 px
 CAR_BLUE = "assets/car_blue.gif"
 CAR_PURPLE = "assets/car_purple.gif"
 CAR_YELLOW = "assets/car_yellow.gif"

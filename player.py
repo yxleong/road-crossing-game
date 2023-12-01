@@ -9,9 +9,7 @@ PLAYER_IMG = "assets/Bear.gif"
 
 
 class Player(Turtle):
-    def __init__(
-        self, shape: str = "turtle", undobuffersize: int = 1000, visible: bool = True
-    ) -> None:
+    def __init__(self) -> None:
         register_shape(PLAYER_IMG)
         super().__init__(PLAYER_IMG)
         self.penup()
