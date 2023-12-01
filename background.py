@@ -13,8 +13,6 @@ RIVERS_COOR = [RIVER_1_COOR, RIVER_2_COOR, RIVER_3_COOR, RIVER_4_COOR, RIVER_5_C
 
 class Background:
     def __init__(self) -> None:
-        # for shape in RIVER_SHAPES:
-        #     register_shape(shape)
         register_shape(BACKGROUND_SHAPE)
         register_shape(RIVERS_SHAPE)
         self.background = Turtle(BACKGROUND_SHAPE)

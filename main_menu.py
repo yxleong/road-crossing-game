@@ -8,7 +8,6 @@ HOME_BUTTON_PATH = "assets/home_button.png"
 RESTART_BUTTON_PATH = "assets/restart_button.png"
 MAIN_MENU_BACKGROUND_PATH = "assets/main_menu.png"
 SCORE_MENU_BACKGROUND_PATH = "assets/score_menu.png"
-STAR_PATH = "assets/star.png"
 FONT = ("Comic Sans MS", 72, "bold")
 
 

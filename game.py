@@ -70,9 +70,10 @@ class Game(Frame):
             if player.detect_collision(
                 car_manager.displayed_cars
             ) or player.detect_drowning(RIVERS_COOR):
-                game_is_on = False
                 player.is_alive = False
+                game_is_on = False
                 scoreboard.display_game_over()
+                self.screen.update()
                 time.sleep(2)
 
             time.sleep(0.1)
