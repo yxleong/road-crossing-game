@@ -6,9 +6,11 @@ PLAY_BUTTON_PATH = "images/play_button.png"
 QUIT_BUTTON_PATH = "images/quit_button.png"
 HOME_BUTTON_PATH = "images/home_button.png"
 RESTART_BUTTON_PATH = "images/restart_button.png"
-MAIN_MENU_BACKGROUND_PATH = "images/plan_main_menu.png"
+# MAIN_MENU_BACKGROUND_PATH = "images/plan_main_menu.png"
+MAIN_MENU_BACKGROUND_PATH = "assets/main_menu.png"
 SCORE_MENU_BACKGROUND_PATH = "images/score_menu.png"
 STAR_PATH = "images/star.png"
+FONT = ("Arial", 72, "bold")
 
 
 class Menu(Tk):
@@ -19,11 +21,13 @@ class Menu(Tk):
         self.resize_window(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
 
         self.current_score = 0
-        self.button_images = {
+        self.images = {
             "play": PhotoImage(file=PLAY_BUTTON_PATH),
             "quit": PhotoImage(file=QUIT_BUTTON_PATH),
             "home": PhotoImage(file=HOME_BUTTON_PATH),
             "restart": PhotoImage(file=RESTART_BUTTON_PATH),
+            "bg_main_menu": PhotoImage(file=MAIN_MENU_BACKGROUND_PATH),
+            "bg_score_menu": PhotoImage(file=SCORE_MENU_BACKGROUND_PATH),
         }
 
         container = Frame(self)
@@ -36,8 +40,7 @@ class Menu(Tk):
             self.frames[page_name] = frame
             frame.grid(row=0, column=0, sticky="nsew")
 
-        # self.show_frame("MainMenu")
-        self.show_frame("ScoreMenu")
+        self.show_frame("MainMenu")
 
     def show_frame(self, page_name):
         frame = self.frames[page_name]
@@ -70,33 +73,35 @@ class MainMenu(Frame):
         Frame.__init__(self, parent)
         self.controller = controller
 
-        bg_image = PhotoImage(file=MAIN_MENU_BACKGROUND_PATH)
-        bg_label = Label(self, image=bg_image)
-        bg_label.image = bg_image
+        bg_label = Label(self, image=self.controller.images["bg_main_menu"])
+        bg_label.image = self.controller.images["bg_main_menu"]
         # bg_label.place(x=0, y=0)
         bg_label.pack()
 
         start_game_btn = Button(
             self,
-            image=controller.button_images["play"],
+            image=controller.images["play"],
             command=lambda: controller.show_frame("Game"),
             bd=0,
         )
         # start_game_btn.pack()
-        start_game_btn.config(width=378, height=120)
+
+        # start_game_btn.config(width=378, height=120)
+        start_game_btn.config(width=390, height=122)
+
         # start_game_btn.place(x=458, y=222)
         # start_game_btn.lift()
 
         exit_game_btn = Button(
             self,
-            image=controller.button_images["quit"],
+            image=controller.images["quit"],
             command=lambda: controller.exit_game(),
             bd=0,
         )
         exit_game_btn.config(width=386, height=120)
         # exit_game_btn.place(x=455, y=367)
 
-        start_game_btn.place(x=458, y=222)
+        start_game_btn.place(x=460, y=222)
         exit_game_btn.place(x=455, y=367)
 
 
@@ -106,55 +111,33 @@ class ScoreMenu(Frame):
         self.controller = controller
         self.score = self.controller.current_score
 
-        bg_image = PhotoImage(file=SCORE_MENU_BACKGROUND_PATH)
-        bg_label = Label(self, image=bg_image)
-        bg_label.image = bg_image
-        # menu_label.place(x=300, y=132)
-        bg_label.pack()
-
-        # self.label.pack(
-        #     side="left",
-        #     fill="x",
-        #     pady=10
-        # )
-
-        # bg_image = PhotoImage(file='images\plan_game_over.gif')
-        # bg_image = PhotoImage(file='assets\scene2.gif')
-        # bg_label = Label(self, image=bg_image)
-        # bg_label.image = bg_image
-        # bg_label.pack()
-
-        star_img = PhotoImage(file=STAR_PATH)
-        self.score_label = Label(
-            self,
-            # text=f"Score: {self.score}",
-            text=self.score,
-            font=("Arial", 72),
+        self.canvas = Canvas(self)
+        self.canvas.create_image(
+            SCREEN_WIDTH / 2,
+            SCREEN_HEIGHT / 2,
+            image=controller.images["bg_score_menu"],
         )
-        self.score_label.place(x=647, y=338)
-        self.score_label.lift()
+        self.canvas.pack(expand=True, fill=BOTH)
+        self.score_text = self.canvas.create_text(670, 380, text=self.score, font=FONT)
 
         home_btn = Button(
             self,
-            image=controller.button_images["home"],
+            image=controller.images["home"],
             command=lambda: controller.show_frame("MainMenu"),
             bd=0,
         )
-
         home_btn.config(width=139, height=139)
         home_btn.place(x=512, y=510)
 
         restart_btn = Button(
             self,
-            image=controller.button_images["restart"],
+            image=controller.images["restart"],
             command=lambda: controller.show_frame("Game"),
             bd=0,
         )
-
         restart_btn.config(width=139, height=139)
         restart_btn.place(x=698, y=510)
 
     def update_score(self, score):
         self.score = score
-        # self.score_label.config(text=f"Score: {self.score}")
-        self.score_label.config(text=self.score)
+        self.canvas.itemconfig(self.score_text, text=self.score)

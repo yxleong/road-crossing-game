@@ -45,6 +45,7 @@ class Game(Frame):
         }
 
     def play_game(self):
+        self.screen.update()
         tools = self.init_game_tools()
         scoreboard = tools["scoreboard"]
         car_manager = tools["car_manager"]
@@ -77,6 +78,7 @@ class Game(Frame):
             time.sleep(0.1)
             self.screen.update()
 
+        player.hideturtle()
         self.controller.current_score = scoreboard.get_score()
         self.controller.show_frame("ScoreMenu")
 
