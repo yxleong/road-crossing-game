@@ -8,7 +8,7 @@ HOME_BUTTON_PATH = "images\home_button.png"
 RESTART_BUTTON_PATH = "images\\restart_button.png"
 MAIN_MENU_BACKGROUND_PATH = "images\plan_main_menu.png"
 GAME_OVER_BACKGROUND_PATH = "images\game_over_menu.png"
-
+STAR_PATH = "images\star.png"
 
 class Menu(Tk):
     def __init__(self, *args, **kwargs) -> None:
@@ -35,8 +35,8 @@ class Menu(Tk):
             self.frames[page_name] = frame
             frame.grid(row=0, column=0, sticky="nsew")
 
-        self.show_frame("MainMenu")
-        # self.show_frame("ScoreMenu")
+        # self.show_frame("MainMenu")
+        self.show_frame("ScoreMenu")
 
     def show_frame(self, page_name):
         frame = self.frames[page_name]
@@ -120,10 +120,21 @@ class ScoreMenu(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
         self.controller = controller
-
         self.score = self.controller.current_score
-        self.label = Label(self, text=f"Score: {self.score}")
-        self.label.pack(side="top", fill="x", pady=10)
+
+        # gg_image = PhotoImage(file=GAME_OVER_BACKGROUND_PATH)
+        gg_image = PhotoImage(file='images\plan_score_menu.png')
+        menu_label = Label(self, image=gg_image)
+        menu_label.image = gg_image
+        # menu_label.place(x=300, y=132)
+        menu_label.pack()
+        
+        # self.label.pack(
+        #     side="left", 
+        #     fill="x", 
+        #     pady=10
+        # )
+
         # back_btn = Button(
         #     self,
         #     text="Go Back to Main Menu",
@@ -137,12 +148,15 @@ class ScoreMenu(Frame):
         # bg_label.image = bg_image
         # bg_label.pack()
 
-        gg_image = PhotoImage(file=GAME_OVER_BACKGROUND_PATH)
-        # gg_image = PhotoImage(file='images\game_over_menu.png')
-        menu_label = Label(self, image=gg_image)
-        menu_label.image = gg_image
-        # menu_label.place(x=300, y=132)
-        menu_label.pack()
+        star_img = PhotoImage(file=STAR_PATH)
+        self.label = Label(
+            self, 
+            # text=f"Score: {self.score}",
+            text=self.score,
+            font=("Arial", 72)
+        )
+        self.label.place(x=647, y=338)
+        self.label.lift()
 
         home_btn = Button(
             self,
@@ -150,8 +164,8 @@ class ScoreMenu(Frame):
             command=lambda: controller.show_frame("MainMenu"),
             bd=0,
         )
-        home_btn.config(width=155, height=163)
-        home_btn.place(x=512, y=530)
+        home_btn.config(width=139, height=139)
+        home_btn.place(x=512, y=510)
 
         restart_btn = Button(
             self,
@@ -159,9 +173,10 @@ class ScoreMenu(Frame):
             command=lambda: controller.show_frame("Game"),
             bd=0,
         )
-        restart_btn.config(width=155, height=163)
-        restart_btn.place(x=701, y=535)
+        restart_btn.config(width=139, height=139)
+        restart_btn.place(x=698, y=510)
 
     def update_score(self, score):
         self.score = score
-        self.label.config(text=f"Score: {self.score}")
+        # self.label.config(text=f"Score: {self.score}")
+        self.label.config(text=self.score)

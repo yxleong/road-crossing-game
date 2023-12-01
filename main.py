@@ -13,7 +13,7 @@ main_app.mainloop()
 # screen.title("Turtle Road Crossing Game 🐢")
 
 # screen.register_shape(BACKGROUND_IMG)
-# screen.register_shape(PLAYER_IMG)
+# screen.register_shape(PLAYER_IMG)5
 # background = Turtle(BACKGROUND_IMG)
 
 # app = App(screen, PLAYER_IMG)
