@@ -35,8 +35,7 @@ class Menu(Tk):
             self.frames[page_name] = frame
             frame.grid(row=0, column=0, sticky="nsew")
 
-        self.show_frame("MainMenu")
-        # self.show_frame("ScoreMenu")
+        self.show_frame("ScoreMenu")
 
     def show_frame(self, page_name):
         frame = self.frames[page_name]
@@ -68,8 +67,6 @@ class MainMenu(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
         self.controller = controller
-        # label = Label(self, text="This is the MainMenu page")
-        # label.pack(side="top", fill="x", pady=10)
 
         bg_image = PhotoImage(file=MAIN_MENU_BACKGROUND_PATH)
         bg_label = Label(self, image=bg_image)
@@ -79,41 +76,26 @@ class MainMenu(Frame):
 
         start_game_btn = Button(
             self,
-            # text="Start Game",
             image=controller.button_images["play"],
             command=lambda: controller.show_frame("Game"),
             bd=0,
         )
         # start_game_btn.pack()
         start_game_btn.config(width=378, height=120)
-        start_game_btn.place(x=458, y=222)
+        # start_game_btn.place(x=458, y=222)
         # start_game_btn.lift()
 
         exit_game_btn = Button(
             self,
-            # text="Exit Game",
             image=controller.button_images["quit"],
             command=lambda: controller.exit_game(),
             bd=0,
         )
         exit_game_btn.config(width=386, height=120)
+        # exit_game_btn.place(x=455, y=367)
+
+        start_game_btn.place(x=458, y=222)
         exit_game_btn.place(x=455, y=367)
-        # exit_game_btn.pack()
-        # exit_game_btn.lift()
-
-        # start_game_btn.place(x=459,y=225)
-        # exit_game_btn.place(x=459,y=367)
-
-        # button2 = Button(
-        #     self,
-        #     text="Go to ScoreMenu",
-        #     command=lambda: controller.show_frame("ScoreMenu"),
-        # )
-        # exit_game_btn = Button(
-        #     self, text="Exit Game", command=lambda: controller.exit_game()
-        # )
-
-        # button2.pack()
 
 
 class ScoreMenu(Frame):
@@ -122,8 +104,9 @@ class ScoreMenu(Frame):
         self.controller = controller
 
         self.score = self.controller.current_score
-        self.label = Label(self, text=f"Score: {self.score}")
-        self.label.pack(side="top", fill="x", pady=10)
+        self.score_label = Label(self, text=f"Score: {self.score}")
+        # self.score_label.place(x=0, y=100)
+        # self.score_label.pack(side="top", fill="x", pady=10)
         # back_btn = Button(
         #     self,
         #     text="Go Back to Main Menu",
@@ -131,18 +114,11 @@ class ScoreMenu(Frame):
         # )
         # back_btn.pack()
 
-        # bg_image = PhotoImage(file='images\plan_game_over.gif')
-        # bg_image = PhotoImage(file='assets\scene2.gif')
-        # bg_label = Label(self, image=bg_image)
-        # bg_label.image = bg_image
-        # bg_label.pack()
-
-        gg_image = PhotoImage(file=GAME_OVER_BACKGROUND_PATH)
-        # gg_image = PhotoImage(file='images\game_over_menu.png')
-        menu_label = Label(self, image=gg_image)
-        menu_label.image = gg_image
-        # menu_label.place(x=300, y=132)
-        menu_label.pack()
+        bg_image = PhotoImage(file=GAME_OVER_BACKGROUND_PATH)
+        bg_label = Label(self, image=bg_image)
+        bg_label.image = bg_image
+        # bg_label.place(x=300, y=132)
+        bg_label.pack()
 
         home_btn = Button(
             self,
@@ -151,7 +127,7 @@ class ScoreMenu(Frame):
             bd=0,
         )
         home_btn.config(width=155, height=163)
-        home_btn.place(x=512, y=530)
+        # home_btn.place(x=512, y=530)
 
         restart_btn = Button(
             self,
@@ -160,8 +136,12 @@ class ScoreMenu(Frame):
             bd=0,
         )
         restart_btn.config(width=155, height=163)
-        restart_btn.place(x=701, y=535)
+        # restart_btn.place(x=701, y=530)
+
+        home_btn.place(x=500, y=500)
+        restart_btn.place(x=700, y=500)
+        self.score_label.place(x=676, y=400)
 
     def update_score(self, score):
         self.score = score
-        self.label.config(text=f"Score: {self.score}")
+        self.score_label.config(text=f"Score: {self.score}")
