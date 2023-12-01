@@ -17,9 +17,9 @@ TOP_POSITION_Y = 350
 # CAR_SHAPES = [CAR_RED, CAR_GREEN, CAR_BLUE]
 
 # car size: 79 x 47 px
-CAR_BLUE = "assets/blue_car.gif"
-CAR_PURPLE = "assets/purple_car.gif"
-CAR_YELLOW = "assets/yellow_car.gif"
+CAR_BLUE = "assets/car_blue.gif"
+CAR_PURPLE = "assets/car_purple.gif"
+CAR_YELLOW = "assets/car_yellow.gif"
 CAR_SHAPES = [CAR_BLUE, CAR_PURPLE, CAR_YELLOW]
 
 
