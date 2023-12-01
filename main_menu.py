@@ -2,15 +2,14 @@ from tkinter import *
 
 from game import Game, SCREEN_WIDTH, SCREEN_HEIGHT
 
-PLAY_BUTTON_PATH = "images/play_button.png"
-QUIT_BUTTON_PATH = "images/quit_button.png"
-HOME_BUTTON_PATH = "images/home_button.png"
-RESTART_BUTTON_PATH = "images/restart_button.png"
-# MAIN_MENU_BACKGROUND_PATH = "images/plan_main_menu.png"
+PLAY_BUTTON_PATH = "assets/play_button.png"
+QUIT_BUTTON_PATH = "assets/quit_button.png"
+HOME_BUTTON_PATH = "assets/home_button.png"
+RESTART_BUTTON_PATH = "assets/restart_button.png"
 MAIN_MENU_BACKGROUND_PATH = "assets/main_menu.png"
-SCORE_MENU_BACKGROUND_PATH = "images/score_menu.png"
-STAR_PATH = "images/star.png"
-FONT = ("Arial", 72, "bold")
+SCORE_MENU_BACKGROUND_PATH = "assets/score_menu.png"
+STAR_PATH = "assets/star.png"
+FONT = ("Comic Sans MS", 72, "bold")
 
 
 class Menu(Tk):
