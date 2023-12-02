@@ -1,5 +1,5 @@
 from tkinter import *
-
+import pygame
 from game import Game, SCREEN_WIDTH, SCREEN_HEIGHT
 
 PLAY_BUTTON_PATH = "assets/play_button.png"
@@ -9,6 +9,8 @@ RESTART_BUTTON_PATH = "assets/restart_button.png"
 MAIN_MENU_BACKGROUND_PATH = "assets/main_menu.png"
 SCORE_MENU_BACKGROUND_PATH = "assets/score_menu.png"
 FONT = ("Comic Sans MS", 72, "bold")
+BGM_PATH = "assets/cute_song.mp3"
+GAMEOVER_PATH = "assets/Game_Over.mp3"
 
 
 class Menu(Tk):
@@ -45,9 +47,22 @@ class Menu(Tk):
         frame.tkraise()
         self.tkraise()
         if page_name == "Game":
+            pygame.mixer.init()
+            pygame.mixer.music.load(BGM_PATH)
+            pygame.mixer.music.play(-1)
             frame.play_game()
+            
+        elif page_name == "MainMenu":
+            pygame.mixer.init()
+            pygame.mixer.music.load(BGM_PATH)
+            pygame.mixer.music.play(-1)
+            
         elif page_name == "ScoreMenu":
             frame.update_score(self.current_score)
+            pygame.mixer.music.stop()
+            pygame.mixer.init()
+            pygame.mixer.music.load(GAMEOVER_PATH)
+            pygame.mixer.music.play()
 
     def resize_window(self, width, height):
         ws = self.winfo_screenwidth()

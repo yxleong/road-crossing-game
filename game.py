@@ -1,5 +1,6 @@
 import time
 import random
+import pygame
 from turtle import Screen, Turtle
 from tkinter import *
 
@@ -10,7 +11,9 @@ from background import Background, RIVERS_COOR
 
 SCREEN_WIDTH = 1352
 SCREEN_HEIGHT = 896
-
+BGM_PATH = "assets/cute_song.mp3"
+COLLISION_PATH = "assets/Collision.mp3"
+GAMEOVER_PATH = "assets/Game_Over.mp3"
 
 class Game(Frame):
     def __init__(self, parent, controller) -> None:
@@ -70,6 +73,9 @@ class Game(Frame):
             if player.detect_collision(
                 car_manager.displayed_cars
             ) or player.detect_drowning(RIVERS_COOR):
+                pygame.mixer.init()
+                pygame.mixer.music.load(COLLISION_PATH)
+                pygame.mixer.music.play()
                 player.is_alive = False
                 game_is_on = False
                 scoreboard.display_game_over()
@@ -79,6 +85,9 @@ class Game(Frame):
             time.sleep(0.1)
             self.screen.update()
 
+        pygame.mixer.init()
+        pygame.mixer.music.load(GAMEOVER_PATH)
+        pygame.mixer.music.play()
         player.hideturtle()
         self.controller.current_score = scoreboard.get_score()
         self.controller.show_frame("ScoreMenu")
