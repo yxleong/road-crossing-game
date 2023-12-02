@@ -54,7 +54,7 @@ class Player(Turtle):
     def detect_drowning(self, river_list):
         for river in river_list:
             if (
-                self.ycor() - 10 <= river["top"]
+                self.ycor() - 20 <= river["top"]
                 and self.ycor() - 10 >= river["bottom"]
                 and self.xcor() + 10 >= river["left"]
                 and self.xcor() - 10 <= river["right"]

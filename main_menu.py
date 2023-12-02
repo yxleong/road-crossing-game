@@ -1,6 +1,7 @@
 from tkinter import *
-import pygame
+
 from game import Game, SCREEN_WIDTH, SCREEN_HEIGHT
+from music import Music
 
 PLAY_BUTTON_PATH = "assets/play_button.png"
 QUIT_BUTTON_PATH = "assets/quit_button.png"
@@ -9,8 +10,6 @@ RESTART_BUTTON_PATH = "assets/restart_button.png"
 MAIN_MENU_BACKGROUND_PATH = "assets/main_menu.png"
 SCORE_MENU_BACKGROUND_PATH = "assets/score_menu.png"
 FONT = ("Comic Sans MS", 72, "bold")
-BGM_PATH = "assets/cute_song.mp3"
-GAMEOVER_PATH = "assets/Game_Over.mp3"
 
 
 class Menu(Tk):
@@ -29,6 +28,7 @@ class Menu(Tk):
             "bg_main_menu": PhotoImage(file=MAIN_MENU_BACKGROUND_PATH),
             "bg_score_menu": PhotoImage(file=SCORE_MENU_BACKGROUND_PATH),
         }
+        self.music = Music()
 
         container = Frame(self)
         container.pack(side="top", fill="both", expand=True)
@@ -47,22 +47,15 @@ class Menu(Tk):
         frame.tkraise()
         self.tkraise()
         if page_name == "Game":
-            pygame.mixer.init()
-            pygame.mixer.music.load(BGM_PATH)
-            pygame.mixer.music.play(-1)
+            self.music.play_bgm()
             frame.play_game()
-            
+
         elif page_name == "MainMenu":
-            pygame.mixer.init()
-            pygame.mixer.music.load(BGM_PATH)
-            pygame.mixer.music.play(-1)
-            
+            self.music.play_bgm()
+
         elif page_name == "ScoreMenu":
             frame.update_score(self.current_score)
-            pygame.mixer.music.stop()
-            pygame.mixer.init()
-            pygame.mixer.music.load(GAMEOVER_PATH)
-            pygame.mixer.music.play()
+            self.music.play_gameover()
 
     def resize_window(self, width, height):
         ws = self.winfo_screenwidth()
@@ -80,6 +73,9 @@ class Menu(Tk):
         self.delete_game_frame()
         self.destroy()
 
+    def play_collision_music(self):
+        self.music.play_collision()
+
 
 class MainMenu(Frame):
     def __init__(self, parent, controller):
@@ -88,7 +84,6 @@ class MainMenu(Frame):
 
         bg_label = Label(self, image=self.controller.images["bg_main_menu"])
         bg_label.image = self.controller.images["bg_main_menu"]
-        # bg_label.place(x=0, y=0)
         bg_label.pack()
 
         start_game_btn = Button(
@@ -97,13 +92,7 @@ class MainMenu(Frame):
             command=lambda: controller.show_frame("Game"),
             bd=0,
         )
-        # start_game_btn.pack()
-
-        # start_game_btn.config(width=378, height=120)
         start_game_btn.config(width=390, height=122)
-
-        # start_game_btn.place(x=458, y=222)
-        # start_game_btn.lift()
 
         exit_game_btn = Button(
             self,
@@ -112,7 +101,6 @@ class MainMenu(Frame):
             bd=0,
         )
         exit_game_btn.config(width=386, height=120)
-        # exit_game_btn.place(x=455, y=367)
 
         start_game_btn.place(x=460, y=222)
         exit_game_btn.place(x=455, y=367)
