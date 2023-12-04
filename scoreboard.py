@@ -6,12 +6,11 @@ FONT = ("Courier", 24, "bold")
 # Initial position for displaying the scoreboard
 SCOREBOARD_POSITION = (-650, 400)
 
+
 # Class representing the scoreboard in the road-crossing game
 class Scoreboard(Turtle):
     # Constructor for the Scoreboard class
-    def __init__(
-        self, shape: str = "classic", undobuffersize: int = 1000, visible: bool = False
-    ) -> None:
+    def __init__(self) -> None:
         """
         Initializes a new instance of the Scoreboard class.
 
@@ -20,9 +19,9 @@ class Scoreboard(Turtle):
         - undobuffersize (int): The size of the undo buffer for turtle graphics operations. Default is 1000.
         - visible (bool): Determines whether the turtle cursor is initially visible on the screen. Default is False.
         """
-        
+
         # Initialize the Scoreboard as a Turtle with specified attributes
-        super().__init__(shape, undobuffersize, visible)
+        super().__init__(visible=False)
 
         # Set up initial attributes for the scoreboard
         self.penup()  # Lift the pen to avoid drawing when moving
@@ -34,7 +33,9 @@ class Scoreboard(Turtle):
     def update_level(self):
         self.clear()  # Clear the previous display
         self.goto(SCOREBOARD_POSITION)  # Move to the scoreboard position
-        self.write(arg=f"LEVEL: {self.level}", align="left", font=FONT)  # Write the current level
+        self.write(
+            arg=f"LEVEL: {self.level}", align="left", font=FONT
+        )  # Write the current level
 
     # Method to increase the level and update the display
     def increase_level(self):
@@ -49,5 +50,6 @@ class Scoreboard(Turtle):
     # Method to get the current score
     def get_score(self):
         return self.level
+
 
 # End of the Scoreboard class
