@@ -6,20 +6,10 @@ FONT = ("Courier", 24, "bold")
 # Initial position for displaying the scoreboard
 SCOREBOARD_POSITION = (-650, 400)
 
-
 # Class representing the scoreboard in the road-crossing game
 class Scoreboard(Turtle):
     # Constructor for the Scoreboard class
     def __init__(self) -> None:
-        """
-        Initializes a new instance of the Scoreboard class.
-
-        Parameters:
-        - shape (str): The shape of the turtle cursor used for drawing. Default is "classic".
-        - undobuffersize (int): The size of the undo buffer for turtle graphics operations. Default is 1000.
-        - visible (bool): Determines whether the turtle cursor is initially visible on the screen. Default is False.
-        """
-
         # Initialize the Scoreboard as a Turtle with specified attributes
         super().__init__(visible=False)
 
