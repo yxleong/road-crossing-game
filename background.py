@@ -1,3 +1,23 @@
+"""
+Program : background.py
+Author : Group 10
+Analysis:
+1. Manages the game's background visuals, including allowed and not allowed areas.
+
+Design - pseudocode:
+1. Define the significant constant
+   BACKGROUND_SHAPE, RIVERS_SHAPE: File paths for background shapes.
+   RIVERS_COOR: Coordinates for each river segment.
+2. The inputs are
+   Visualization of game background and river boundaries.
+3. Computations:
+   Register custom shapes with Turtle graphics for background and rivers.
+   Create Turtle objects for background and rivers.
+   Set up the rivers' positions.
+4. The output is
+   Display and management of the game's background and river areas.
+"""
+
 from turtle import Turtle, register_shape
 
 # Define file paths for custom shape images
