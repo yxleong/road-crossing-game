@@ -1,3 +1,29 @@
+"""
+Program : game.py
+Author : Group 10
+Analysis:
+1. This file manages the game logic, initializing the game environment, handling player movement, car management, collision detection, score updating, and game over scenarios.
+Design - pseudocode:
+1. Define the significant constant
+   SCREEN_WIDTH = 1352  
+   SCREEN_HEIGHT = 896 
+2. The inputs are
+   Key presses: 'w', 'Up', 's', 'Down', 'a', 'Left', 'd', 'Right' for player movement.
+3. Computations:
+   Initializing the game environment (setting up the screen, event listeners)
+   Managing player and car movement
+   Spawning cars randomly on the road
+   Checking player's progress and increasing game difficulty
+   Detecting collisions between the player and cars or water
+   Handling game over scenarios
+   Updating the score
+4. The output is
+   Game screen with player, cars, and obstacles
+   Increased difficulty level as player progresses
+   Score updates during gameplay
+   Game over message and transition to the score menu
+"""
+
 import time
 import random
 from turtle import Screen
