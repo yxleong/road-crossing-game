@@ -1,3 +1,24 @@
+"""
+Program : main_menu.py
+Author : Group 10
+Analysis:
+1. This file defines the main menu of the game using the Tkinter library.
+2. It includes buttons to start the game, display scores, and exit the game.
+
+Design - pseudocode:
+1. Define the significant constant
+   PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets.
+   FONT: Font configuration for text display.
+2. The inputs are
+   User interaction with buttons (start game, exit game).
+3. Computations:
+   Define the Menu class inheriting from Tkinter.
+   Initialize window attributes, images, and music.
+   Create frames for different sections (MainMenu, ScoreMenu, Game).
+   Implement methods to switch frames, resize the window, handle game elements, and play sounds.
+4. The output is
+   Display of the main menu with buttons and background images.
+"""
 from tkinter import *
 
 # Importing other modules and constants
