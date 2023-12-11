@@ -1,3 +1,29 @@
+"""
+Program : car_manager.py
+Author : Group 10
+Analysis:
+1. Manages the cars in the game, their creation, movement, and speed increment.
+
+Design - pseudocode:
+1. Define the significant constant
+   COLORS: List of possible car colors.
+   CREATE_CAR_CHANCES: Number of chances to create a new car.
+   CAR_COUNT: Total number of cars in the game.
+   STARTING_MOVE_DISTANCE: Initial distance a car moves.
+   MOVE_INCREMENT: Distance increment when game level increases.  
+   STARTING_POSITION_X: Initial X position for creating cars.
+   BOTTOM_POSITION_Y, TOP_POSITION_Y: Y positions for creating cars.
+   CAR_SHAPES: Paths to images representing different car colors.
+2. The inputs are
+   Iterations for car movement, level changes in the game.
+3. Computations:
+   Initialize car manager attributes.
+   Create and manage car movements, speeds, and their creation chances.
+   Handle car collision detection and increase car speed.
+4. The output is
+   Display and management of cars on the game screen.
+"""
+
 from turtle import Turtle, register_shape
 import random
 
