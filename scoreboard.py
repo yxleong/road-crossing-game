@@ -1,3 +1,24 @@
+"""
+Program : scoreboard.py
+Author : Group 10
+Analysis:
+1. Manages and displays the game's scoreboard, including the level and game over message.
+
+Design - pseudocode:
+1. Define the significant constant
+   FONT: Font configuration for the scoreboard display.
+   SCOREBOARD_POSITION: Initial position for displaying the scoreboard.
+2. The inputs are
+   Level changes in the game.
+3. Computations:
+   Initialize the Scoreboard as a Turtle with specified attributes.
+   Update and display the current level on the scoreboard.
+   Increase the level and update the display when required.
+   Display "GAME OVER" in the center of the screen upon game end.
+4. The output is
+   Display and management of the game's level and "GAME OVER" message.
+"""
+
 from turtle import Turtle
 
 # Font configuration for the scoreboard display
