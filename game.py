@@ -1,6 +1,10 @@
 """
 Program : game.py
 Author : Group 10
+            林佩佩 B10915067
+            羅翡瑩 B11015010
+            盧清珍 B11015012
+            梁婭瑄 B11015016
 Analysis:
 1. This file manages the game logic, initializing the game environment, handling player movement, car management, collision detection, score updating, and game over scenarios.
 Design - pseudocode:
