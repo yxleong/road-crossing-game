@@ -22,17 +22,17 @@ Design - pseudocode:
        Set the color of the scoreboard text to white
        Set the initial level of the player to 1
        Call the update_level method to display the initial level
-    Method to update and display the current level on the scoreboard
+    Define method to update and display the current level on the scoreboard
        Clear the previous display
        Move to the scoreboard position
        Write the current level with specified alignment and font
-    Method to increase the level and update the display
+    Define method to increase the level and update the display
        Increment the level
        Call the update_level method
-    Method to display GAME OVER in the center of the screen
+    Define method to display GAME OVER in the center of the screen
        Move to the center of the screen
        Write GAME OVER with specified alignment and font
-    Method to get the current score
+    Define method to get the current score
        Return the current level
 """
 
