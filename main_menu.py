@@ -6,15 +6,15 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. This file defines the main menu of the game using the Tkinter library.
-2. It includes buttons to start the game, display scores, and exit the game.
+1. This file defines the main menu of the game using the Tkinter library
+2. It includes buttons to start the game, display scores, and exit the game
 
 Design - pseudocode:
 1. Import modules from library
       tkinter
 2. Define the significant constant
-      PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets.
-      FONT: Font configuration for text display.
+      PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets
+      FONT: Font configuration for text display
 3. Define the Menu class
       Initialize the main window with specified attributes
       Create attributes for current score, images, and music
