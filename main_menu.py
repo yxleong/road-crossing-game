@@ -34,6 +34,7 @@ Design - pseudocode:
       Define buttons for returning to the main menu and restarting the game
       Update the displayed score when needed
 """
+
 from tkinter import *
 
 # Importing other modules and constants
