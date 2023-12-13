@@ -13,26 +13,26 @@ Design - pseudocode:
 1. Import modules from library
       tkinter
 2. Define the significant constant
-    PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets.
-    FONT: Font configuration for text display.
+      PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets.
+      FONT: Font configuration for text display.
 3. Define the Menu class
-    Initialize the main window with specified attributes
-    Create attributes for current score, images, and music
-    Create a container frame and initialize frames for MainMenu, ScoreMenu, and Game
-    Show the MainMenu initially
-    Define method to show a specific frame and handle music and gameplay
-    Define method to resize the window
-    Define method to delete the Game frame
-    Define method to exit the game
-    Define method to play collision sound
+      Initialize the main window with specified attributes
+      Create attributes for current score, images, and music
+      Create a container frame and initialize frames for MainMenu, ScoreMenu, and Game
+      Show the MainMenu initially
+      Define method to show a specific frame and handle music and gameplay
+      Define method to resize the window
+      Define method to delete the Game frame
+      Define method to exit the game
+      Define method to play collision sound
 4. Define the MainMenu class
-    Initialize the MainMenu frame with background image and buttons
-    Define buttons for starting the game and exiting
-    Handle button placements and appearances
+      Initialize the MainMenu frame with background image and buttons
+      Define buttons for starting the game and exiting
+      Handle button placements and appearances
 5. Define the ScoreMenu class
-    Initialize the ScoreMenu frame with background image, buttons, and score display
-    Define buttons for returning to the main menu and restarting the game
-    Update the displayed score when needed
+      Initialize the ScoreMenu frame with background image, buttons, and score display
+      Define buttons for returning to the main menu and restarting the game
+      Update the displayed score when needed
 """
 from tkinter import *
 
