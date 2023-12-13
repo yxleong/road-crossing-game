@@ -1,22 +1,31 @@
 """
 Program : player.py
 Author : Group 10
+            林佩佩 B10915067
+            羅翡瑩 B11015010
+            盧清珍 B11015012
+            梁婭瑄 B11015016
 Analysis:
 1. Represents the player character in the game, handles movement and collisions.
 
 Design - pseudocode:
-1. Define the significant constant
+1. Import required module
+      Turtle
+2. Define the significant constant
    STARTING_POSITION, MOVE_DISTANCE, FINISH_LINE_Y: Player starting position, movement distance, and finish line position.
    POSITION_LIMIT_X, POSITION_LIMIT_Y: Player movement limits.
    PLAYER_IMG: Path to the image representing the player.
-2. The inputs are
-   User input for player movement and collisions.
-3. Computations:
-   Initialize the player attributes.
-   Handle player movement (forward, backward, left, right) and boundary checks.
-   Detect if the player reaches the finish line, collisions with cars, and drowning in rivers.
-4. The output is
-   Display and control of the player character on the game screen.
+3. Define the Player class
+   Register the player image
+   Initialize the Player as a Turtle
+   initialize attributes for the player
+   Define a method to move the player forward
+   Define a method to move the player backward
+   Define a method to move the player to the left
+   Define a method to move the player to the right
+   Define a method to check if the player has reached the finish line
+   Define a method to check for collision with cars
+   Define a method to check for drowning in rivers
 """
 
 from turtle import Turtle, register_shape
