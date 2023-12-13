@@ -1,6 +1,10 @@
 """
 Program : background.py
-Author : Group 10
+Author : GROUP 10
+            林佩佩 B10915067
+            羅翡瑩 B11015010
+            盧清珍 B11015012
+            梁婭瑄 B11015016
 Analysis:
 1. Manages the game's background visuals, including allowed and not allowed areas.
 
