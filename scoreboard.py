@@ -6,7 +6,7 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. Manages and displays the game's scoreboard, including the level and game over message.
+1. Manages and displays the game's scoreboard, including the level and game over message
 
 Design - pseudocode:
 1. Import required module
