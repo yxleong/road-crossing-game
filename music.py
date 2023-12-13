@@ -1,22 +1,27 @@
 """
 Program : music.py
 Author : Group 10
+            林佩佩 B10915067
+            羅翡瑩 B11015010
+            盧清珍 B11015012
+            梁婭瑄 B11015016
 Analysis:
 1. Manages the game's audio, including background music and sound effects.
 
 Design - pseudocode:
-1. Define the significant constant
+1. Import required module
+      pygame
+2. Define the significant constant
    BGM_PATH, BGM_COLLISION_PATH, BGM_GAMEOVER_PATH: Paths to audio files.
-2. The inputs are
-   Triggers for playing background music, collision sound, and game over sound.
-3. Computations:
-   Initialize Pygame mixer for sound handling.
-   Load sound files into Pygame mixer as Sound objects.
-   Create sound channels for playing different sounds concurrently.
-   Play background music in a loop.
-   Play collision sound and game over sound while stopping background music when required.
-4. The output is
-   Playback of background music, collision sound, and game over sound during gameplay.
+3. Define the Music class
+   Initialize the Pygame module for handling sound
+   Set the number of sound channels to background music, collision sound, and game over sound
+   Load sound files into Pygame
+   Create sound channels for playing different sounds
+   Define a method to play the background music
+   Define a method to play the collision sound 
+   Define a ethod to play the game over sound
+   Define a method to stop the background music
 """
 
 import pygame
