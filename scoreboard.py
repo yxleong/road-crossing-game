@@ -6,9 +6,9 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. Manages and displays the game's scoreboard, including the level and game over message.
+1. The Scoreboards class manages and displays the game's scoreboard, including the level and game over message.
 
-Design - pseudocode:
+Design - Pseudocode:
 1. Import required module
       Turtle
 2. Define font configuration for the scoreboard display
@@ -16,24 +16,17 @@ Design - pseudocode:
 3. Define the significant constant
       SCOREBOARD_POSITION
 4. Define the Scoreboard class
-    Initialize Scoreboard as a Turtle with specified attributes
     Set up initial attributes for the scoreboard
-       Lift the pen to avoid drawing when moving
        Set the color of the scoreboard text to white
        Set the initial level of the player to 1
-       Call the update_level method to display the initial level
     Define method to update and display the current level on the scoreboard
-       Clear the previous display
-       Move to the scoreboard position
-       Write the current level with specified alignment and font
+       Clear the previous display and write the current level
     Define method to increase the level and update the display
        Increment the level
        Call the update_level method
     Define method to display GAME OVER in the center of the screen
-       Move to the center of the screen
-       Write GAME OVER with specified alignment and font
+       Write GAME OVER at the center of the screen
     Define method to get the current score
-       Return the current level
 """
 
 from turtle import Turtle
@@ -43,6 +36,7 @@ FONT = ("Courier", 24, "bold")
 
 # Initial position for displaying the scoreboard
 SCOREBOARD_POSITION = (-650, 400)
+
 
 # Class representing the scoreboard in the road-crossing game
 class Scoreboard(Turtle):

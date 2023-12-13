@@ -6,13 +6,14 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. This file defines the main menu of the game using the Tkinter library
-2. It includes buttons to start the game, display scores, and exit the game
+1. This file defines the Menu of the game using the Tkinter library, which consists of Main Menu and Score Menu
+2. The Main Menu includes buttons to start the game and to exit the game
+3. The Score Menu includes the score the player achieved and buttons to either restart the game or to go back to Main Menu
 
-Design - pseudocode:
+Design - Pseudocode:
 1. Import modules from library
       tkinter
-2. Define the significant constant
+2. Define constants
       PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets
       FONT: Font configuration for text display
 3. Define the Menu class
@@ -20,14 +21,14 @@ Design - pseudocode:
       Create attributes for current score, images, and music
       Create a container frame and initialize frames for MainMenu, ScoreMenu, and Game
       Show the MainMenu initially
-      Define method to show a specific frame and handle music and gameplay
+      Define method to show a specific frame and play the appropriate music
       Define method to resize the window
       Define method to delete the Game frame
       Define method to exit the game
       Define method to play collision sound
 4. Define the MainMenu class
       Initialize the MainMenu frame with background image and buttons
-      Define buttons for starting the game and exiting
+      Define buttons for starting and exiting the game
       Handle button placements and appearances
 5. Define the ScoreMenu class
       Initialize the ScoreMenu frame with background image, buttons, and score display
@@ -52,6 +53,7 @@ SCORE_MENU_BACKGROUND_PATH = "assets/score_menu.png"
 # Font configuration for text display
 FONT = ("Comic Sans MS", 72, "bold")
 
+
 # Class representing the main menu of the game
 class Menu(Tk):
     def __init__(self, *args, **kwargs) -> None:
@@ -59,7 +61,9 @@ class Menu(Tk):
 
         # Setting up the main window
         self.title("Road Crossing Game 🚗")  # Set the title of the main window
-        self.resize_window(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)  # Resize the window to a specified width and height
+        self.resize_window(
+            width=SCREEN_WIDTH, height=SCREEN_HEIGHT
+        )  # Resize the window to a specified width and height
 
         # Initializing attributes
         self.current_score = 0  # Initialize the current score attribute to 0
@@ -67,23 +71,37 @@ class Menu(Tk):
             "play": PhotoImage(file=PLAY_BUTTON_PATH),  # Load the play button image
             "quit": PhotoImage(file=QUIT_BUTTON_PATH),  # Load the quit button image
             "home": PhotoImage(file=HOME_BUTTON_PATH),  # Load the home button image
-            "restart": PhotoImage(file=RESTART_BUTTON_PATH),  # Load the restart button image
-            "bg_main_menu": PhotoImage(file=MAIN_MENU_BACKGROUND_PATH),  # Load the main menu background image
-            "bg_score_menu": PhotoImage(file=SCORE_MENU_BACKGROUND_PATH),  # Load the score menu background image
+            "restart": PhotoImage(
+                file=RESTART_BUTTON_PATH
+            ),  # Load the restart button image
+            "bg_main_menu": PhotoImage(
+                file=MAIN_MENU_BACKGROUND_PATH
+            ),  # Load the main menu background image
+            "bg_score_menu": PhotoImage(
+                file=SCORE_MENU_BACKGROUND_PATH
+            ),  # Load the score menu background image
         }
-        self.music = Music()  # Create an instance of the Music class for handling game sounds
+        self.music = (
+            Music()
+        )  # Create an instance of the Music class for handling game sounds
 
         # Creating a container frame to hold different pages
         container = Frame(self)
-        container.pack(side="top", fill="both", expand=True)  # Pack the container frame to the top, filling both directions
+        container.pack(
+            side="top", fill="both", expand=True
+        )  # Pack the container frame to the top, filling both directions
 
         # Dictionary to store instances of different frames
         self.frames = {}
         for F in (MainMenu, ScoreMenu, Game):  # Iterate through different frame classes
             page_name = F.__name__  # Get the name of the frame class
-            frame = F(parent=container, controller=self)  # Create an instance of the frame class
+            frame = F(
+                parent=container, controller=self
+            )  # Create an instance of the frame class
             self.frames[page_name] = frame  # Store the frame instance in the dictionary
-            frame.grid(row=0, column=0, sticky="nsew")  # Grid the frame to the container with sticky configuration
+            frame.grid(
+                row=0, column=0, sticky="nsew"
+            )  # Grid the frame to the container with sticky configuration
 
         # Display the main menu frame by default
         self.show_frame("MainMenu")
@@ -101,7 +119,9 @@ class Menu(Tk):
             self.music.play_bgm()  # Play background music when entering the main menu frame
 
         elif page_name == "ScoreMenu":
-            frame.update_score(self.current_score)  # Update the displayed score when entering the score menu frame
+            frame.update_score(
+                self.current_score
+            )  # Update the displayed score when entering the score menu frame
             self.music.play_gameover()  # Play game over sound when entering the score menu frame
 
     # Method to resize the main window
@@ -109,14 +129,18 @@ class Menu(Tk):
         ws = self.winfo_screenwidth()  # Get the screen width
         hs = self.winfo_screenheight()  # Get the screen height
 
-        x = (ws / 2) - (width / 2)  # Calculate the x-coordinate for centering the window
-        y = (hs / 2) - (height / 2)  # Calculate the y-coordinate for centering the window
+        x = (ws / 2) - (
+            width / 2
+        )  # Calculate the x-coordinate for centering the window
+        y = (hs / 2) - (
+            height / 2
+        )  # Calculate the y-coordinate for centering the window
 
         self.geometry(f"{width}x{height}+{int(x)}+{int(y)}")  # Set the window geometry
 
     # Method to delete the game frame and exit the game
     def delete_game_frame(self):
-        self.frames["Game"].delete_game() 
+        self.frames["Game"].delete_game()
 
     # Method to exit the game
     def exit_game(self):
@@ -126,6 +150,7 @@ class Menu(Tk):
     # Method to play collision sound
     def play_collision_music(self):
         self.music.play_collision()  # Play the collision sound effect
+
 
 # Class representing the main menu of the game
 class MainMenu(Frame):
@@ -142,22 +167,32 @@ class MainMenu(Frame):
         start_game_btn = Button(
             self,
             image=controller.images["play"],
-            command=lambda: controller.show_frame("Game"),  # Show the Game frame when the button is clicked
+            command=lambda: controller.show_frame(
+                "Game"
+            ),  # Show the Game frame when the button is clicked
             bd=0,  # Set border width to 0 for a clean button appearance
         )
-        start_game_btn.config(width=390, height=122)  # Set the width and height of the button
+        start_game_btn.config(
+            width=390, height=122
+        )  # Set the width and height of the button
 
         exit_game_btn = Button(
-
             self,
             image=controller.images["quit"],
             command=lambda: controller.exit_game(),  # Exit the game when the button is clicked
             bd=0,  # Set border width to 0 for a clean button appearance
         )
-        exit_game_btn.config(width=386, height=120)  # Set the width and height of the button
+        exit_game_btn.config(
+            width=386, height=120
+        )  # Set the width and height of the button
 
-        start_game_btn.place(x=460, y=222)  # Place the start game button at specified coordinates
-        exit_game_btn.place(x=455, y=367)  # Place the exit game button at specified coordinates
+        start_game_btn.place(
+            x=460, y=222
+        )  # Place the start game button at specified coordinates
+        exit_game_btn.place(
+            x=455, y=367
+        )  # Place the exit game button at specified coordinates
+
 
 # Class representing the score menu of the game
 class ScoreMenu(Frame):
@@ -201,5 +236,6 @@ class ScoreMenu(Frame):
     def update_score(self, score):
         self.score = score
         self.canvas.itemconfig(self.score_text, text=self.score)
+
 
 # End of the classes

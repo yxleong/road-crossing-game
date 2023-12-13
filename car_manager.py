@@ -1,14 +1,14 @@
 """
 Program : car_manager.py
-Author : Group 10
+Author : GROUP 10
             林佩佩 B10915067
             羅翡瑩 B11015010
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. Manages the cars in the game, their creation, movement, and speed increment
+1. The Car Manager class manages the cars in the game, their creation, movement, and speed increment
 
-Design - pseudocode:
+Design - Pseudocode:
 1. Import required modules & library
     Turtle
     register_shape
@@ -28,37 +28,28 @@ Design - pseudocode:
     CAR_SHAPES
 3. Define the CarManager class
     Initialize CarManager
-        for each car shape in CAR_SHAPES
-            Register the car shape
-        Set the car speed to the starting move distance
-        Set the number of chances to create a new car
+        Register all car shapes
+        Set the car speed and the number of chances to create a new car
         Initialize lists for displayed and unused cars
         Call the initialize_all_cars method to create and add cars to the unused list
     Define a method to initialize all cars and add them to the unused cars list
-        For each car count in the total number of cars:
-            Create a new Turtle representing a car with a random shape
-            Set the car attributes
-            Add the new car to the list of unused cars
+        Each car gets a random shape
+        Add each initialized car to the list of unused cars
     Define a method to create a new car and place it at a random Y position
         Check if there are unused cars available
         If there are unused cars
-            Pop a car from the list of unused cars
-            Show the car on the screen
-            Generate a random Y position for the car
-            Place the car at the starting X position and the random Y position
-            Add the new car to the list of displayed cars
+            Show the car on the screen, at the starting X position and the random Y position
+            Move the new car from the list of unused cars to the list of displayed cars
     Define a method to generate a random Y offset for placing a car
         Define a list of Y offsets
         Choose and return a random offset from the list
-    Define a method to move all displayed cars to the left
-        For each displayed car in the list
-            Move the car forward based on its current speed
-            Check if the car is off the left side of the screen
-                Hide the car
-                Add the car to the list of unused cars
-                Remove the car from the list of displayed cars
+    Define a method to move all displayed cars
+        Move all displayed cars forward based on the current car speed
+        Check if the car is off the left side of the screen
+            Hide the car from the screen
+            Move the new car from the list of displayed cars to the list of unused cars
     Define a method to increase the speed of all cars
-        Increase the car speed by the move increment
+        Increase the car speed according to the move increment
 """
 
 from turtle import Turtle, register_shape
@@ -93,6 +84,7 @@ CAR_YELLOW = "assets/car_yellow.gif"
 CAR_SHAPES = [CAR_BLUE, CAR_PURPLE, CAR_YELLOW]
 # car size: 60 x 35 px
 
+
 # Class representing the car manager in the game
 class CarManager:
     def __init__(self) -> None:
@@ -112,12 +104,14 @@ class CarManager:
         for _ in range(CAR_COUNT):
             # Create a new Turtle representing a car with a random shape
             new_car = Turtle(random.choice(CAR_SHAPES))
-            
+
             # Set the car attributes
             new_car.penup()  # Lift the pen to avoid drawing while moving
-            new_car.setheading(180)  # Set the initial orientation of the car to face left
+            new_car.setheading(
+                180
+            )  # Set the initial orientation of the car to face left
             new_car.hideturtle()  # Hide the car initially
-            
+
             # Add the new car to the list of unused cars
             self.unused_cars.append(new_car)
 
@@ -127,13 +121,13 @@ class CarManager:
         if self.unused_cars:
             # Pop a car from the list of unused cars
             new_car = self.unused_cars.pop()
-            
+
             # Show the car on the screen
             new_car.showturtle()
-            
+
             # Generate a random Y position for the car
             random_y = BOTTOM_POSITION_Y + self.generate_random_y_offset()
-            
+
             # Place the car at the starting X position and the random Y position
             new_car.goto(STARTING_POSITION_X, random_y)
 
@@ -161,5 +155,6 @@ class CarManager:
     # Method to increase the speed of all cars
     def increase_speed(self):
         self.car_speed += MOVE_INCREMENT
+
 
 # End of the CarManager class

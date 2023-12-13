@@ -9,9 +9,9 @@ Analysis:
 1. This file serves as the entry point of the program
 2. It imports the Menu class from main_menu.py and initializes the main application
 
-Design - pseudocode:
+Design - Pseudocode:
 1. Import required module
-      main_menu
+      Menu from main_menu
 2. Create an instance of the Menu class
       main_app
 3. Start the main event loop

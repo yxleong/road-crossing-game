@@ -1,14 +1,14 @@
 """
 Program : player.py
-Author : Group 10
+Author : GROUP 10
             林佩佩 B10915067
             羅翡瑩 B11015010
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. Represents the player character in the game, handles movement and collisions.
+1. The Player class represents the player character in the game, handles movement and collisions.
 
-Design - pseudocode:
+Design - Pseudocode:
 1. Import required modules
     Turtle
     register_shape
@@ -17,43 +17,15 @@ Design - pseudocode:
     POSITION_LIMIT_X, POSITION_LIMIT_Y: Player movement limits.
     PLAYER_IMG: Path to the image representing the player.
 3. Define the Player class
-    Initialize Player as a Turtle with the player image
-        Register the player image
-        Lift the pen to avoid drawing while moving
-        Set the player's color to lime
-        Set the player's orientation to face upward
-        Place the player at the starting position
-        Initialize the is_alive flag as True
-    Define a method to move the player forward
-        If the player is alive
-            Move the player forward by the move distance
-    Define a method to move the player backward, with boundary checking
-        If the player is alive and the player's y-coordinate is above the lower limit
-            Move the player backward by the move distance
-    Define a method to move the player to the left, with boundary checking
-        If the player is alive and the player's x-coordinate is above the left limit
-            Move the player to the left by the move distance
-    Define a method to move the player to the right, with boundary checking
-        If the player is alive and the player's x-coordinate is below the right limit
-            Move the player to the right by the move distance
+    Initialize Player as a Turtle with the player image and put it at the starting position
+    Define methods to move the player forward, backward, left, and right with boundary checking
+        Player cannot move outside of the window
     Define a method to check if the player has reached the finish line
-        If the player's y-coordinate is above the finish line
-            Move the player to the starting position
-            Return True indicating that the player crossed the finish line
-        Return False indicating that the player has not crossed the finish line
+        If the player has reached the finish line, move the player back to the starting position
     Define a method to check for collision with cars
-        For each car in the list of cars
-            If the player's y-coordinate is within a range around the car's y-coordinate
-                and the distance between the player and the car is within a threshold
-                Set the player as not alive
-                Return True indicating a collision
-        Return False indicating no collision
+        If collision happens, set the player as not alive
     Define a method to check for drowning in rivers
-        For each river segment in the list of rivers
-            If the player's position is within the boundaries of the river segment
-                Set the player as not alive
-                Return True indicating drowning
-        Return False indicating no drowning
+        If player drowns, set the player as not alive
 """
 
 from turtle import Turtle, register_shape
@@ -70,6 +42,7 @@ POSITION_LIMIT_Y = 410
 # Path to the image representing the player
 PLAYER_IMG = "assets/Bear.gif"
 
+
 # Class representing the player character in the game
 class Player(Turtle):
     def __init__(self) -> None:
@@ -81,7 +54,6 @@ class Player(Turtle):
 
         # Set up initial attributes for the player
         self.penup()  # Lift the pen to avoid drawing while moving
-        self.color("lime")  # Set the player's color to lime
         self.setheading(90)  # Set the player's orientation to face upward
         self.goto(STARTING_POSITION)  # Place the player at the starting position
         self.is_alive = True  # Flag to track player's life status
@@ -119,11 +91,15 @@ class Player(Turtle):
         for car in car_list:
             if (
                 # Check if the player's y-coordinate is within a range around the car's y-coordinate
-                self.ycor() >= car.ycor() - 25  # Check if player is above or at the same level as the top edge of the car
-                and self.ycor() <= car.ycor() + 25  # Check if player is below or at the same level as the bottom edge of the car
-
+                self.ycor()
+                >= car.ycor()
+                - 25  # Check if player is above or at the same level as the top edge of the car
+                and self.ycor()
+                <= car.ycor()
+                + 25  # Check if player is below or at the same level as the bottom edge of the car
                 # Check if the distance between the player and the car is less than or equal to a threshold
-                and self.distance(car.pos()) <= 42  # Check if the Euclidean distance between the player and the car is within a specified range
+                and self.distance(car.pos())
+                <= 42  # Check if the Euclidean distance between the player and the car is within a specified range
             ):
                 # If a collision is detected, set player as not alive
                 self.is_alive = False
@@ -143,5 +119,6 @@ class Player(Turtle):
                 self.is_alive = False
                 return True
         return False
+
 
 # End of the Player class

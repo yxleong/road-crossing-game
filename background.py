@@ -6,9 +6,9 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. Manages the game's background visuals, including allowed and not allowed areas
+1. This Background class manages the game's background visuals, including allowed and not allowed areas
 
-Design - pseudocode:
+Design - Pseudocode:
 1. Import required modules
       Turtle
       register_shape
@@ -16,14 +16,8 @@ Design - pseudocode:
    BACKGROUND_SHAPE, RIVERS_SHAPE: File paths for background shapes
    RIVERS_COOR: Coordinates for each river segment
 3. Define the Background class
-      Initialize Background
-            Register the allowed combination shape
-            Register the not allowed combination shape
-      Create a Turtle for the background using the allowed combination shape
-      Create a Turtle for the rivers using the not allowed combination shape
-      Set up the rivers Turtle
-            Lift the pen to avoid drawing when moving
-            Move the rivers Turtle to a specified location
+      Initialize background shapes
+      Set the background in appropriate locations
 """
 
 from turtle import Turtle, register_shape
@@ -39,6 +33,7 @@ RIVER_3_COOR = {"left": -159, "right": 108, "top": 17, "bottom": -133}
 RIVER_4_COOR = {"left": 211, "right": 435, "top": 17, "bottom": -133}
 RIVER_5_COOR = {"left": 538, "right": 676, "top": 17, "bottom": -133}
 RIVERS_COOR = [RIVER_1_COOR, RIVER_2_COOR, RIVER_3_COOR, RIVER_4_COOR, RIVER_5_COOR]
+
 
 # Class representing the background of the game
 class Background:
@@ -56,5 +51,6 @@ class Background:
         # Set up the rivers Turtle
         self.rivers.penup()
         self.rivers.goto(-2, -58)
+
 
 # End of the Background class
