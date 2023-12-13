@@ -9,17 +9,15 @@ Analysis:
 1. Manages the game's background visuals, including allowed and not allowed areas.
 
 Design - pseudocode:
-1. Define the significant constant
+1. Import required module
+      Turtle
+2. Define the significant constant
    BACKGROUND_SHAPE, RIVERS_SHAPE: File paths for background shapes.
    RIVERS_COOR: Coordinates for each river segment.
-2. The inputs are
-   Visualization of game background and river boundaries.
-3. Computations:
-   Register custom shapes with Turtle graphics for background and rivers.
-   Create Turtle objects for background and rivers.
-   Set up the rivers' positions.
-4. The output is
-   Display and management of the game's background and river areas.
+3. Define the Background class
+   Create a Turtle for the background using the allowed combination shape
+   Create a Turtle for the rivers using the unallowed combination shape
+   Set up the river's positions
 """
 
 from turtle import Turtle, register_shape
