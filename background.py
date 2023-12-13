@@ -6,15 +6,15 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. Manages the game's background visuals, including allowed and not allowed areas.
+1. Manages the game's background visuals, including allowed and not allowed areas
 
 Design - pseudocode:
 1. Import required modules
       Turtle
       register_shape
 2. Define the significant constant
-   BACKGROUND_SHAPE, RIVERS_SHAPE: File paths for background shapes.
-   RIVERS_COOR: Coordinates for each river segment.
+   BACKGROUND_SHAPE, RIVERS_SHAPE: File paths for background shapes
+   RIVERS_COOR: Coordinates for each river segment
 3. Define the Background class
       Initialize Background
             Register the allowed combination shape
