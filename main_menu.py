@@ -1,23 +1,38 @@
 """
 Program : main_menu.py
-Author : Group 10
+Author : GROUP 10
+            林佩佩 B10915067
+            羅翡瑩 B11015010
+            盧清珍 B11015012
+            梁婭瑄 B11015016
 Analysis:
 1. This file defines the main menu of the game using the Tkinter library.
 2. It includes buttons to start the game, display scores, and exit the game.
 
 Design - pseudocode:
-1. Define the significant constant
+1. Import modules from library
+      tkinter
+2. Define the significant constant
    PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets.
    FONT: Font configuration for text display.
-2. The inputs are
-   User interaction with buttons (start game, exit game).
-3. Computations:
-   Define the Menu class inheriting from Tkinter.
-   Initialize window attributes, images, and music.
-   Create frames for different sections (MainMenu, ScoreMenu, Game).
-   Implement methods to switch frames, resize the window, handle game elements, and play sounds.
-4. The output is
-   Display of the main menu with buttons and background images.
+3. Define the Menu class
+    Initialize the main window with specified attributes
+    Create attributes for current score, images, and music
+    Create a container frame and initialize frames for MainMenu, ScoreMenu, and Game
+    Show the MainMenu initially
+    Define method to show a specific frame and handle music and gameplay
+    Define method to resize the window
+    Define method to delete the Game frame
+    Define method to exit the game
+    Define method to play collision sound
+4. Define the MainMenu class
+    Initialize the MainMenu frame with background image and buttons
+    Define buttons for starting the game and exiting
+    Handle button placements and appearances
+5. Define the ScoreMenu class
+    Initialize the ScoreMenu frame with background image, buttons, and score display
+    Define buttons for returning to the main menu and restarting the game
+    Update the displayed score when needed
 """
 from tkinter import *
 
