@@ -13,9 +13,9 @@ Design - pseudocode:
     Turtle
     register_shape
 2. Define the significant constant
-    STARTING_POSITION, MOVE_DISTANCE, FINISH_LINE_Y: Player starting position, movement distance, and finish line position.
-    POSITION_LIMIT_X, POSITION_LIMIT_Y: Player movement limits.
-    PLAYER_IMG: Path to the image representing the player.
+    STARTING_POSITION, MOVE_DISTANCE, FINISH_LINE_Y: Player starting position, movement distance, and finish line position
+    POSITION_LIMIT_X, POSITION_LIMIT_Y: Player movement limits
+    PLAYER_IMG: Path to the image representing the player
 3. Define the Player class
     Initialize Player as a Turtle with the player image
         Register the player image
