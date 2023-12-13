@@ -7,25 +7,51 @@ Author : Group 10
             梁婭瑄 B11015016
 Analysis:
 1. This file manages the game logic, initializing the game environment, handling player movement, car management, collision detection, score updating, and game over scenarios.
+
 Design - pseudocode:
-1. Define the significant constant
-   SCREEN_WIDTH = 1352.
-   SCREEN_HEIGHT = 896.
-2. The inputs are
-   Key presses: 'w', 'Up', 's', 'Down', 'a', 'Left', 'd', 'Right' for player movement.
-3. Computations:
-   Initializing the game environment (setting up the screen, event listeners).
-   Managing player and car movement.
-   Spawning cars randomly on the road.
-   Checking player's progress and increasing game difficulty.
-   Detecting collisions between the player and cars or water.
-   Handling game over scenarios.
-   Updating the score.
-4. The output is
-   Game screen with player, cars, and obstacles.
-   Increased difficulty level as player progresses.
-   Score updates during gameplay.
-   Game over message and transition to the score menu.
+1. Import required libraries & modules
+      time
+      random
+      tkinter
+      Screen
+2. Importing custom classes from other files
+      player - Player
+      car_manager - CarManager
+      scoreboard - Scoreboard
+      background - Background, RIVERS_COOR
+3. Define constants for the screen dimensions
+      SCREEN_WIDTH
+      SCREEN_HEIGHT
+4. Define the Game class
+    Initialize Game as a Frame with a parent and a controller
+    Define a method to initialize game tools and setup event listeners
+        Create instances of Background, Scoreboard, CarManager, and Player
+        Set up event listeners for player movement
+        Return a dictionary with references to the initialized tools
+    Define a method to start and run the game
+        Update the screen to apply initial settings
+        Initialize game tools and retrieve instances
+        Set game_is_on to True
+        While game_is_on is True:
+            Randomly spawn cars
+            Check if the random chance allows for creating a new car
+                Invoke the method to create a new car
+            Move all existing cars on the road
+            Check if player finished the level
+                Increase the game level
+                Increase the speed of cars on the road
+                Decrease the chance of creating new cars if it's above 2
+            Detect player collision with car or drowning
+                Play collision sound
+                Set player as not alive
+                End the game loop
+                Display game over message
+                Update the screen
+                Pause for 2 seconds
+            Pause for a short time and update the screen
+        Hide the player turtle
+        Get and store the current score
+        Switch to the score menu
 """
 
 import time
