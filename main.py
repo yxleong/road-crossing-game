@@ -6,8 +6,8 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. This file serves as the entry point of the program.
-2. It imports the Menu class from main_menu.py and initializes the main application.
+1. This file serves as the entry point of the program
+2. It imports the Menu class from main_menu.py and initializes the main application
 
 Design - pseudocode:
 1. Import required module
