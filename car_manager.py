@@ -9,17 +9,56 @@ Analysis:
 1. Manages the cars in the game, their creation, movement, and speed increment.
 
 Design - pseudocode:
-1. Import required module
-      Turtle
+1. Import required modules & library
+    Turtle
+    register_shape
+    random
 2. Define the significant constant
-   COLORS, CREATE_CAR_CHANCES, CAR_COUNT, STARTING_MOVE_DISTANCE, MOVE_INCREMENT, STARTING_POSITION_X, BOTTOM_POSITION_Y, TOP_POSITION_Y, CAR_SHAPES
+    COLORS
+    CREATE_CAR_CHANCES
+    CAR_COUNT
+    STARTING_MOVE_DISTANCE
+    MOVE_INCREMENT
+    STARTING_POSITION_X
+    BOTTOM_POSITION_Y
+    TOP_POSITION_Y
+    CAR_BLUE
+    CAR_PURPLE
+    CAR_YELLOW
+    CAR_SHAPES
 3. Define the CarManager class
-   Initialize car manager attributes
-   Define method to initialize all the cars and add them to the unused car list
-   Define method to create a new car and place it at a random position
-   Define method to generate random offset to place a car
-   Define method to move all displayed cars 
-   Define method to increase the speed of cars
+    Initialize CarManager
+        for each car shape in CAR_SHAPES
+            Register the car shape
+        Set the car speed to the starting move distance
+        Set the number of chances to create a new car
+        Initialize lists for displayed and unused cars
+        Call the initialize_all_cars method to create and add cars to the unused list
+    Define a method to initialize all cars and add them to the unused cars list
+        For each car count in the total number of cars:
+            Create a new Turtle representing a car with a random shape
+            Set the car attributes
+            Add the new car to the list of unused cars
+    Define a method to create a new car and place it at a random Y position
+        Check if there are unused cars available
+        If there are unused cars
+            Pop a car from the list of unused cars
+            Show the car on the screen
+            Generate a random Y position for the car
+            Place the car at the starting X position and the random Y position
+            Add the new car to the list of displayed cars
+    Define a method to generate a random Y offset for placing a car
+        Define a list of Y offsets
+        Choose and return a random offset from the list
+    Define a method to move all displayed cars to the left
+        For each displayed car in the list
+            Move the car forward based on its current speed
+            Check if the car is off the left side of the screen
+                Hide the car
+                Add the car to the list of unused cars
+                Remove the car from the list of displayed cars
+    Define a method to increase the speed of all cars
+        Increase the car speed by the move increment
 """
 
 from turtle import Turtle, register_shape
