@@ -12,14 +12,7 @@ Design - pseudocode:
 1. Import required module
       Turtle
 2. Define the significant constant
-   COLORS: List of possible car colors.
-   CREATE_CAR_CHANCES: Number of chances to create a new car.
-   CAR_COUNT: Total number of cars in the game.
-   STARTING_MOVE_DISTANCE: Initial distance a car moves.
-   MOVE_INCREMENT: Distance increment when game level increases.  
-   STARTING_POSITION_X: Initial X position for creating cars.
-   BOTTOM_POSITION_Y, TOP_POSITION_Y: Y positions for creating cars.
-   CAR_SHAPES: Paths to images representing different car colors.
+   COLORS, CREATE_CAR_CHANCES, CAR_COUNT, STARTING_MOVE_DISTANCE, MOVE_INCREMENT, STARTING_POSITION_X, BOTTOM_POSITION_Y, TOP_POSITION_Y, CAR_SHAPES
 3. Define the CarManager class
    Initialize car manager attributes
    Define method to initialize all the cars and add them to the unused car list
