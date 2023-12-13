@@ -19,7 +19,7 @@ Design - pseudocode:
    Load sound files into Pygame
    Create sound channels for playing different sounds
    Define a method to play the background music
-        Check if the background music channel is not playing\
+        Check if the background music channel is not playing
             Start playing the background music
    Define a method to play the collision sound and stop the background music
         Check if the background music channel is currently playing
