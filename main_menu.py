@@ -13,8 +13,8 @@ Design - pseudocode:
 1. Import modules from library
       tkinter
 2. Define the significant constant
-   PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets.
-   FONT: Font configuration for text display.
+    PLAY_BUTTON_PATH, QUIT_BUTTON_PATH, HOME_BUTTON_PATH, RESTART_BUTTON_PATH, MAIN_MENU_BACKGROUND_PATH, SCORE_MENU_BACKGROUND_PATH: Paths to image assets.
+    FONT: Font configuration for text display.
 3. Define the Menu class
     Initialize the main window with specified attributes
     Create attributes for current score, images, and music
