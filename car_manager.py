@@ -9,7 +9,8 @@ Analysis:
 1. Manages the cars in the game, their creation, movement, and speed increment.
 
 Design - pseudocode:
-1. Import necessary modules
+1. Import required module
+      Turtle
 2. Define the significant constant
    COLORS: List of possible car colors.
    CREATE_CAR_CHANCES: Number of chances to create a new car.
