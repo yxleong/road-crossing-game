@@ -18,7 +18,7 @@ Design - Pseudocode:
     Create sound channels for each different audio
     Define a method to play the background music
     Define a method to play the collision sound 
-    Define a ethod to play the game over sound
+    Define a method to play the game over sound
     Define a method to stop the background music
 """
 
