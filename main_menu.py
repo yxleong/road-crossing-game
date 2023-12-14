@@ -6,9 +6,9 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. This file defines the Menu of the game using the Tkinter library, which consists of Main Menu and Score Menu
-2. The Main Menu includes buttons to start the game and to exit the game
-3. The Score Menu includes the score the player achieved and buttons to either restart the game or to go back to Main Menu
+1. This file defines the Menu of the game using the Tkinter library, which consists of Main Menu and Score Menu.
+2. The Main Menu includes buttons to start the game and to exit the game.
+3. The Score Menu includes the score the player achieved and buttons to either restart the game or to go back to Main Menu.
 
 Design - Pseudocode:
 1. Import modules from library
