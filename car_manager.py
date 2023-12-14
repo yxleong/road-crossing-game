@@ -84,6 +84,7 @@ CAR_YELLOW = "assets/car_yellow.gif"
 CAR_SHAPES = [CAR_BLUE, CAR_PURPLE, CAR_YELLOW]
 # car size: 60 x 35 px
 
+
 # Class representing the car manager in the game
 class CarManager:
     def __init__(self) -> None:
@@ -154,5 +155,6 @@ class CarManager:
     # Method to increase the speed of all cars
     def increase_speed(self):
         self.car_speed += MOVE_INCREMENT
+
 
 # End of the CarManager class
