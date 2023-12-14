@@ -6,6 +6,7 @@ Welcome to the Road Crossing Game! This is a simple game implemented in Python u
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Demo](#demo)
 - [How to Play](#how-to-play)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -23,6 +24,10 @@ This game is a classic road-crossing challenge where the player controls a chara
 - Scoreboard to track the player's level.
 - Sound effects for collision and game over events.
 - Main menu and score menu screens.
+
+## Demo
+
+
 
 ## How to Play
 
