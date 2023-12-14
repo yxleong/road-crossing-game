@@ -6,7 +6,7 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. This Background class manages the game's background visuals, including allowed and not allowed areas
+1. This Background class manages the game's background visuals, including allowed and not allowed areas.
 
 Design - Pseudocode:
 1. Import required modules
