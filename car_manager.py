@@ -6,7 +6,7 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. The Car Manager class manages the cars in the game, their creation, movement, and speed increment
+1. The Car Manager class manages the cars in the game include their creation, movement, and speed increment.
 
 Design - Pseudocode:
 1. Import required modules & library
@@ -84,7 +84,6 @@ CAR_YELLOW = "assets/car_yellow.gif"
 CAR_SHAPES = [CAR_BLUE, CAR_PURPLE, CAR_YELLOW]
 # car size: 60 x 35 px
 
-
 # Class representing the car manager in the game
 class CarManager:
     def __init__(self) -> None:
@@ -155,6 +154,5 @@ class CarManager:
     # Method to increase the speed of all cars
     def increase_speed(self):
         self.car_speed += MOVE_INCREMENT
-
 
 # End of the CarManager class
