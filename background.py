@@ -13,8 +13,8 @@ Design - Pseudocode:
       Turtle
       register_shape
 2. Define the significant constant
-   BACKGROUND_SHAPE, RIVERS_SHAPE: File paths for background shapes
-   RIVERS_COOR: Coordinates for each river segment
+      BACKGROUND_SHAPE, RIVERS_SHAPE: File paths for background shapes
+      RIVERS_COOR: Coordinates for each river segment
 3. Define the Background class
       Initialize background shapes
       Set the background in appropriate locations
