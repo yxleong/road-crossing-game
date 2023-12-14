@@ -6,8 +6,8 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. This file defines the Game frame
-2. It manages the flow of the game and the game logic, initializing the game environment, handling movement inputs, car management, score updating, and game over scenarios
+1. This file defines the Game frame.
+2. It manages the flow of the game and the game logic, initializing the game environment and handling the movement inputs, car management, score updating, and game over scenarios
 
 Design - Pseudocode:
 1. Import required libraries & modules
