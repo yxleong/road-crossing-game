@@ -6,7 +6,7 @@ Author : GROUP 10
             盧清珍 B11015012
             梁婭瑄 B11015016
 Analysis:
-1. The Player class represents the player character in the game, handles movement and collisions.
+1. The Player class represents the player character in the game, handling the player's movement and collisions.
 
 Design - Pseudocode:
 1. Import required modules
