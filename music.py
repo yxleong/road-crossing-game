@@ -10,7 +10,7 @@ Analysis:
 
 Design - Pseudocode:
 1. Import required module
-      pygame
+    pygame
 2. Define the significant constant
     BGM_PATH, BGM_COLLISION_PATH, BGM_GAMEOVER_PATH: Paths to audio files.
 3. Define the Music class
