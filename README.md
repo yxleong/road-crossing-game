@@ -6,6 +6,7 @@ Welcome to the Road Crossing Game! This is a simple game implemented in Python u
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Gameplay Screenshots](#gameplay-screenshots)
 - [Demo](#demo)
 - [How to Play](#how-to-play)
 - [Installation](#installation)
@@ -24,6 +25,16 @@ This game is a classic road-crossing challenge where the player controls a chara
 - Scoreboard to track the player's level.
 - Sound effects for collision and game over events.
 - Main menu and score menu screens.
+
+## Gameplay Screenshots
+
+![main_menu](https://github.com/stiyqr/road-crossing-game/assets/88047576/6699c730-dcc7-45fb-9671-0f7f5d685d90)
+
+![gameplay_1](https://github.com/stiyqr/road-crossing-game/assets/88047576/c9f80847-9e32-4d8d-a964-9d7908d8bbcd)
+
+![gameplay_2](https://github.com/stiyqr/road-crossing-game/assets/88047576/077adfba-de41-4d48-aa11-f03133e579a5)
+
+![score_menu](https://github.com/stiyqr/road-crossing-game/assets/88047576/c1b8dc87-7f10-41cd-a644-b42b2b7c3e43)
 
 ## Demo
 
