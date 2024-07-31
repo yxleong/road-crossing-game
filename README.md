@@ -39,6 +39,7 @@ This game is a classic road-crossing challenge where the player controls a chara
 ## Demo
 
 [![main menu](https://github.com/stiyqr/road-crossing-game/assets/88047576/6699c730-dcc7-45fb-9671-0f7f5d685d90)](https://github.com/stiyqr/road-crossing-game/blob/main/DemoVideoRoadCrossing720.mp4)
+[Canva for presentation](https://www.canva.com/design/DAF2qGWn5qk/5r6twfVC3WKY-S6Ka3qPMA/view?utm_content=DAF2qGWn5qk&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 ## How to Play
 
