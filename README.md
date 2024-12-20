@@ -55,7 +55,7 @@ This game is a classic road-crossing challenge where the player controls a chara
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/stiyqr/road-crossing-game.git
+git clone https://github.com/yxleong/road-crossing-game.git
 ```
 
 ## Usage
